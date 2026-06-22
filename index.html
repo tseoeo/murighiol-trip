@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Murighiol &amp; the Danube Delta — our trip</title>
+<style>
+:root{
+  --sand:#f6efe4; --sand-soft:#fbf7ef; --ink:#2b2419; --muted:#7a6f5d;
+  --rule:#e3d8c4; --card:#fffdf8; --chip:#efe6d4;
+  --teal:#1f6f6a; --teal-soft:#e3f0ee; --amber:#b9651b; --amber-soft:#f6e7d6;
+  --plum:#6d3b66; --plum-soft:#efe4ee; --gold:#a8862f;
+  --serif:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  --sans:"Avenir Next","Segoe UI",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(40,30,10,.05),0 6px 18px rgba(40,30,10,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --sand:#14120d; --sand-soft:#1b1812; --ink:#ece3d2; --muted:#a99c84;
+    --rule:#352e1f; --card:#201c15; --chip:#2a2418;
+    --teal:#5fc6bd; --teal-soft:#163230; --amber:#e89a4f; --amber-soft:#33240f;
+    --plum:#c79bbf; --plum-soft:#2b1f2a; --gold:#d8b85e;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.1rem}
+a{color:var(--teal);text-underline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em;line-height:1.18}
+
+/* tab bar */
+.tabbar{display:none;position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.tabbar .wrap{display:flex;gap:.5rem;padding:.5rem 1.1rem}
+.tab{flex:0 0 auto;font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--muted);background:none;border:none;border-bottom:2.5px solid transparent;padding:.45rem .3rem;cursor:pointer}
+.tab.active{color:var(--ink);border-color:var(--amber)}
+.tab:hover{color:var(--ink)}
+
+.panel{display:block}
+.panel.active{display:block;animation:fade .25s ease}
+.has-js .tabbar{display:block}
+.has-js .panel{display:none}
+.has-js .panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* hero */
+.hero{text-align:center;padding:3rem 1rem 1.4rem}
+.hero .kick{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.1rem,6.5vw,3.2rem);margin:0 0 .5rem}
+.hero p.sub{font-size:1.12rem;color:var(--muted);font-style:italic;font-family:var(--serif);max-width:34rem;margin:.2rem auto 0}
+.wave{display:block;margin:1.3rem auto 0;width:120px;height:22px;opacity:.8}
+
+/* about */
+.about{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:1.4rem 1.4rem .4rem;margin:1.6rem 0 .5rem;box-shadow:var(--shadow)}
+.about h2{font-size:1.5rem;margin:.1rem 0 .6rem}
+.about p{font-size:1.02rem;margin:0 0 1rem}
+.about .lede{font-family:var(--serif);font-size:1.14rem;color:var(--ink)}
+
+/* glance */
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.7rem;margin:1.3rem 0 1.4rem}
+.gcard{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:.8rem .9rem;box-shadow:var(--shadow)}
+.gcard .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.gcard .v{font-family:var(--serif);font-size:1.04rem;margin-top:.15rem;line-height:1.3}
+
+/* sections */
+section{padding:2.2rem 0 .4rem;border-top:1px solid var(--rule);margin-top:1.8rem}
+.sec-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.3rem}
+.sec-head h2{font-size:1.7rem;margin:.2rem 0}
+.sec-head .n{font-size:.8rem;font-weight:700;color:#fff;background:var(--teal);border-radius:2em;padding:.2em .7em;font-family:var(--sans)}
+section[data-c="amber"] .sec-head .n{background:var(--amber)}
+section[data-c="plum"] .sec-head .n{background:var(--plum)}
+.lead{color:var(--muted);font-family:var(--serif);font-size:1.08rem;margin:.2rem 0 1.2rem}
+
+/* option cards */
+.opt{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:1.15rem 1.2rem;margin:0 0 1rem;box-shadow:var(--shadow)}
+.opt.pick{border-color:var(--teal);border-width:1.5px}
+.opt h3{font-size:1.24rem;margin:0 0 .15rem}
+.opt .tagline{color:var(--muted);font-size:.94rem;margin:0 0 .7rem}
+.badge{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22em .6em;border-radius:2em;margin-left:.4rem;vertical-align:middle}
+.badge.best{background:var(--teal);color:#fff}
+.badge.gentle{background:var(--teal-soft);color:var(--teal)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;font-size:.94rem;margin:.5rem 0 .2rem}
+.facts dt{color:var(--muted);font-weight:600}
+.facts dd{margin:0}
+.opt .why{margin:.7rem 0 0;font-size:.96rem;padding-top:.7rem;border-top:1px dotted var(--rule)}
+
+/* expandable */
+details{background:var(--card);border:1px solid var(--rule);border-radius:12px;margin:0 0 .7rem;overflow:hidden;box-shadow:var(--shadow)}
+details[open]{border-color:var(--teal)}
+summary{cursor:pointer;list-style:none;padding:.95rem 1.1rem;font-family:var(--serif);font-size:1.12rem;font-weight:700;display:flex;align-items:center;gap:.6rem}
+summary::-webkit-details-marker{display:none}
+summary .ic{width:1.3rem;height:1.3rem;flex:none;color:var(--teal);transition:transform .2s}
+details[open] summary .ic{transform:rotate(90deg)}
+summary .sub{font-family:var(--sans);font-size:.78rem;font-weight:400;color:var(--muted);margin-left:auto;text-align:right}
+.body{padding:0 1.1rem 1.1rem;font-size:.98rem}
+.body h4{font-family:var(--serif);font-size:1.08rem;margin:1.1rem 0 .3rem;color:var(--ink)}
+.body ul{margin:.3rem 0 .8rem;padding-left:1.15rem}
+.body li{margin:.3rem 0}
+.body p{margin:.2rem 0 .7rem}
+.k{font-weight:700}
+
+/* callouts */
+.note{border-radius:12px;padding:.9rem 1.1rem;margin:1.1rem 0;font-size:.95rem;border:1px solid var(--rule)}
+.note .t{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.3rem}
+.note.tip{background:var(--teal-soft);border-color:transparent}
+.note.tip .t{color:var(--teal)}
+.note.warn{background:var(--amber-soft);border-color:transparent}
+.note.warn .t{color:var(--amber)}
+.note p{margin:0}.note p+p{margin-top:.5rem}
+
+/* history */
+.era{margin:2.4rem 0 0;padding-top:2rem;border-top:1px solid var(--rule)}
+.era-year{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--teal);display:inline-block;padding:.26em .7em;border-radius:2em;margin-bottom:.6rem}
+.era[data-c="amber"] .era-year{background:var(--amber)}
+.era[data-c="plum"] .era-year{background:var(--plum)}
+.era[data-c="gold"] .era-year{background:var(--gold);color:#2b2419}
+.era h3{font-size:1.5rem;margin:.1rem 0 .8rem}
+.era p{font-family:var(--serif);font-size:1.06rem;margin:0 0 1rem;line-height:1.66}
+.firstword{font-variant:small-caps;letter-spacing:.02em;color:var(--muted)}
+.dropcap::first-letter{font-size:3.4rem;line-height:.8;float:left;margin:.3rem .55rem 0 0;color:var(--amber);font-weight:700;font-family:var(--serif)}
+.pull{font-size:1.36rem;line-height:1.36;font-style:italic;font-family:var(--serif);border-left:3px solid var(--amber);margin:1.6rem 0;padding:.2rem 0 .2rem 1.3rem}
+.pull span{display:block;font-size:.8rem;font-style:normal;font-family:var(--sans);color:var(--muted);letter-spacing:.04em;margin-top:.6rem}
+.myth{background:var(--plum-soft);border-radius:10px;padding:1rem 1.2rem;margin:1.4rem 0;font-size:.95rem}
+.myth .tag{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);display:block;margin-bottom:.3rem}
+.myth p{margin:0}
+.tl{list-style:none;margin:1rem 0 0;padding:0}
+.tl li{display:grid;grid-template-columns:7rem 1fr;gap:.9rem;padding:.5rem 0;border-bottom:1px dotted var(--rule);font-size:.95rem}
+.tl .yr{font-family:var(--sans);font-weight:700;color:var(--teal);font-size:.84rem;padding-top:.15rem}
+
+footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--muted);font-family:var(--sans);line-height:1.6}
+.tel{white-space:nowrap;font-weight:600}
+@media(max-width:560px){
+  body{font-size:16px}
+  .facts{grid-template-columns:1fr}
+  .facts dt{margin-top:.3rem}
+  summary .sub{display:none}
+  .tl li{grid-template-columns:5rem 1fr}
+}
+</style>
+<script>document.documentElement.classList.add('has-js');</script>
+</head>
+<body>
+
+<div class="tabbar"><div class="wrap">
+  <button class="tab active" data-tab="trip">The Trip</button>
+  <button class="tab" data-tab="history">The History</button>
+</div></div>
+
+<!-- ============ TRIP TAB ============ -->
+<div id="trip" class="panel active">
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kick">Danube Delta · Romania · early July 2026</div>
+    <h1>Murighiol &amp; the Delta</h1>
+    <p class="sub">Where the Danube, after 2,850 kilometres across Europe, finally lets go of the land and scatters into reeds, water and birds.</p>
+    <svg class="wave" viewBox="0 0 120 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M2 14 C20 14 22 7 38 7 C54 7 56 14 74 14 C92 14 94 6 118 6" stroke="var(--teal)" stroke-width="1.6" opacity=".75"/>
+      <path d="M2 18 C20 18 22 11 38 11 C54 11 56 18 74 18 C92 18 94 10 118 10" stroke="var(--amber)" stroke-width="1.6" opacity=".6"/>
+    </svg>
+  </header>
+
+  <!-- ABOUT THE PLACE -->
+  <div class="about">
+    <h2>What this place is</h2>
+    <p class="lede">The <strong>Danube Delta</strong> is where Europe's second-longest river ends. After draining ten countries, the Danube fans out across the Romania–Ukraine border into a flat, watery wilderness of about <strong>5,800 km²</strong> — a shifting maze of three great river arms (Chilia, Sulina and Sfântu Gheorghe), hundreds of lakes, countless reed-choked channels, sandbanks and <em>plaur</em> (floating islands of matted reed you can stand on). It is the largest and best-preserved wetland in Europe, a <strong>UNESCO World Heritage Site</strong> and Biosphere Reserve.</p>
+    <p>It is, above all, a <strong>kingdom of birds and water</strong>. Over 300 bird species pass through or breed here — including more than half of the world's <strong>white pelicans</strong> — alongside some 130 fish species, reed beds said to be the largest single expanse on Earth, and a sky that fills at dawn. There are almost no roads. The villages of the interior — Mila 23, Letea, Caraorman, Sfântu Gheorghe — can be reached <strong>only by boat</strong>, and life runs on the water.</p>
+    <p>Its people are a quiet mosaic of exiles and fishermen: <strong>Lipovans</strong> (Russian Old Believers who fled the Tsar's church three centuries ago), Ukrainian <strong>Haholi</strong>, Romanians, and traces of Greeks, Turks and Tatars — each with their own church, language and recipes, all fishing the same channels.</p>
+    <p><strong>Murighiol</strong>, our base, sits on the delta's southern edge, at the point where the tarmac road finally gives out and the wild <strong>Sfântu Gheorghe arm</strong> begins — which makes it the rare spot you can reach by car yet step straight onto the water. Its name isn't Romanian at all but Turkish: <em>mor göl</em>, the <strong>"purple lake,"</strong> for the violet sheen of the salt lakes beside it. And right at the village edge lie the ruins of <strong>Halmyris</strong>, the easternmost fort of the Roman Empire's Danube frontier — but that's the other tab.</p>
+    <div class="glance">
+      <div class="gcard"><div class="l">Our base</div><div class="v">Murighiol</div></div>
+      <div class="gcard"><div class="l">Sunrise ~Jul 1</div><div class="v">≈ 05:20</div></div>
+      <div class="gcard"><div class="l">Getting around</div><div class="v">By boat</div></div>
+      <div class="gcard"><div class="l">Permit</div><div class="v">ARBDD, 15 lei/wk</div></div>
+    </div>
+  </div>
+
+  <!-- ON THE WATER -->
+  <section data-c="teal">
+    <div class="sec-head"><span class="n">1</span><h2>On the water</h2></div>
+    <p class="lead">The delta is half land, half water — and the half worth waking for is the water. The single best thing we can do is one slow, guided boat morning into the reed channels and pelican lakes. Here are the three ways, simplest first.</p>
+
+    <div class="opt pick">
+      <h3>The sunrise tour <span class="badge best">the magic one</span></h3>
+      <p class="tagline">Out before the heat, into the Water Lily reserve as the light comes up.</p>
+      <dl class="facts">
+        <dt>What happens</dt><dd>A small private boat leaves the Murighiol pontoon around 05:00–05:30 and slips into the calm Uzlina and Isac channels just as the sun clears the reeds. Mist lifts off the water; pelicans fly out in long lines to their fishing lakes; herons and egrets stalk the margins; the white and yellow water-lilies open as the light hits them. It is the quietest, most beautiful hour the delta has.</dd>
+        <dt>How long</dt><dd>About 2.5–3 hours — back in time for breakfast and the midday rest.</dd>
+        <dt>Cost</dt><dd>A private sunrise boat runs roughly <strong>€270 for up to 4 people</strong> on the booking platforms (e.g. GetYourGuide); cheaper if you arrange it directly with a Murighiol boatman the day before.</dd>
+        <dt>Why it's worth the alarm</dt><dd>Delta wildlife is only really active in the first hours after dawn and again at dusk — by mid-morning the heat shuts everything down. The sunrise run catches the birds at their busiest and the light at its best in one go.</dd>
+      </dl>
+    </div>
+
+    <div class="opt pick">
+      <h3>A half-day private boat <span class="badge best">our pick</span></h3>
+      <p class="tagline">The sweet spot — private, early, into the wild Sfântu Gheorghe-arm channels and back before the heat.</p>
+      <dl class="facts">
+        <dt>What happens</dt><dd>You hire the <strong>whole boat</strong> with a local boatman and set your own route. Instead of the wide, dredged main channel (which is just transit — barges and little wildlife), you tell him to spend the time in the <strong>narrow side-channels and the lakes</strong>, drifting with the engine cut where the pelicans and herons are. A good boatman knows where the colonies are loafing that week and where the otters hide.</dd>
+        <dt>How long</dt><dd>About 3–5 hours. In July a half-day is plenty — you're off the water before the worst heat and glare.</dd>
+        <dt>Cost</dt><dd>Roughly <strong>€100–150 for the boat</strong> booked <em>directly</em>. (On the platforms the same thing shows up either per-person, ~€45–55, or as the ~€270 private sunrise package — direct is cheaper and more flexible.)</dd>
+        <dt>Who to call</dt><dd><a href="https://danubedeltaboattrips.com/">Danube Delta Boat Trips</a> (Ovidiu, <span class="tel">+40 723 743 828</span>) · the boatmen who work off the <strong>Manu BBQ</strong> terrace in the village · <strong>ExcursiiMurighiol</strong> (<span class="tel">+40 765 415 703</span>, English &amp; Romanian).</dd>
+      </dl>
+      <p class="why"><span class="k">Say exactly this when you book:</span> <em>"Private boat, around 6 a.m. start, as much time as possible slowly in the narrow channels and the lakes, as little as possible on the main arm — and is the ARBDD permit included?"</em> That one sentence is the difference between a transit ride and a real wildlife morning.</p>
+    </div>
+
+    <details>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Places to reach by boat<span class="sub">what's out in the maze</span></summary>
+      <div class="body">
+        <p>Everything genuinely wild in the delta is boat-only — there are no roads inside it. You can't do them all in a couple of trips, so here's what each one is, to help us choose.</p>
+        <h4>Easy wins — on any boat morning from Murighiol</h4>
+        <ul>
+          <li><span class="k">The pelican &amp; lily lakes (Uzlina, Isac, Gorgova).</span> Shallow, mirror-flat lakes where pelicans gather in rafts to fish cooperatively, herons and egrets line the edges, and whiskered terns hawk over carpets of water-lily at their July peak. This is the postcard delta, twenty minutes from the village.</li>
+          <li><span class="k">Plaur — the floating islands.</span> Great drifting mats of peat and matted reed root, thick enough to walk on, that the wind slowly moves around the lakes. They're why the delta's map is never quite the same twice.</li>
+          <li><span class="k">Mila 23.</span> The famous Lipovan fishing village deep in the old looping channels of the "Old Danube" — blue-painted houses, nets drying, the home village of canoeing legend Ivan Patzaichin.</li>
+        </ul>
+        <h4>Bigger expeditions — a long boat day each</h4>
+        <ul>
+          <li><span class="k">Letea forest &amp; the wild horses.</span> Europe's northernmost forest, oaks and lianas growing on ancient sand dunes, roamed by several thousand free-ranging horses descended from animals abandoned when communism fell. Reached by boat, then a short off-road transfer and a walk, with a guide.</li>
+          <li><span class="k">Caraorman.</span> A quieter dune-and-oak forest — and, half-buried in the sand nearby, the eerie concrete skeleton of an <strong>abandoned communist glass factory</strong>, a 1980s scheme to mine the dunes that was never finished. (Exterior only; arrange it in advance.)</li>
+          <li><span class="k">Sfântu Gheorghe arm &amp; the river mouth.</span> The wildest, quietest of the three arms, ending where the Danube finally pours into the Black Sea — wide skies, beaches, and the sense of the very end of the river.</li>
+        </ul>
+        <div class="note tip"><span class="t">The protected core</span><p>The great pelican breeding colony (Roșca-Buhaiova), Sacalin island and the Periteașca–Leahova lagoons are strictly off-limits — viewed only from a distance. Your boatman knows exactly where the lines are; don't ask him to cross them.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- KAYAK -->
+  <section data-c="teal">
+    <div class="sec-head"><span class="n">2</span><h2>By kayak <span class="badge gentle">gentle / beginner-friendly</span></h2></div>
+    <p class="lead">A kayak puts you silent and low on the water, into lily channels no motorboat can enter — the best chance of all of seeing an otter, or drifting up close to a heron. Because we're not strong paddlers, the whole trick is to stay on small, sheltered, current-free channels and leave the big open water alone.</p>
+
+    <div class="opt">
+      <h3>How to do it the easy, safe way</h3>
+      <dl class="facts">
+        <dt>Where to paddle</dt><dd>Launch right from <strong>Murighiol</strong> or nearby <strong>Mahmudia</strong> into the calm, narrow channels and the Water Lily reserve — flat, sheltered, no current and no boat wakes. The water is shallow and the scenery is immediate: reeds taller than you, lilies, frogs, dragonflies, birds a few metres away.</dd>
+        <dt>What to avoid</dt><dd><strong>Lake Razelm and the big open lagoons.</strong> They look tempting but they're large, exposed and get choppy and wind-blown fast — hard, nervous work for beginners and easy to be pushed around. Skip them entirely and stick to the channels.</dd>
+        <dt>When</dt><dd>Dawn or the cool late afternoon — glassy water, no wind, the wildlife awake. Never midday: heat, glare and a headwind that builds through the afternoon.</dd>
+        <dt>How long</dt><dd>A relaxed 1.5–3 hours is perfect. You set your own pace and can turn back whenever you like; there's no current fighting you.</dd>
+        <dt>Renting</dt><dd>Stable sit-on-top or tandem kayaks with life jackets, paddles and a dry bag from <a href="https://kayak-escape.ro/en/kayak-rentals-in-danube-delta/">Kayak Escape</a> (single ~€30/day, tandem ~€50) or Canoe Rental Tulcea (Ștefan, <span class="tel">+40 745 075 813</span>). Many Murighiol guesthouses also rent them or will arrange a guide.</dd>
+      </dl>
+      <div class="note tip"><span class="t">For nervous first-timers (us)</span><p>Take a <strong>tandem</strong> — it's far more stable and you share the effort. Go with a <strong>guide</strong> the first time; the delta is a confusing maze of identical-looking junctions with no phone signal once you're in, and a guide removes every worry, finds the wildlife, and keeps you on the calm water. Wear the life jacket, carry water and sun cover, and keep to the channels close to the village. Done that way it's gentle, dreamy and completely manageable.</p></div>
+    </div>
+  </section>
+
+  <!-- SEE & DO -->
+  <section data-c="amber">
+    <div class="sec-head"><span class="n">3</span><h2>Everything else to see</h2></div>
+    <p class="lead">For a rest day, or the hours between boat trips — wildlife on foot, the strange, and the historic sites you can reach by car. Tap a section to open it.</p>
+
+    <details>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Flora &amp; fauna — exactly early July<span class="sub">what's at its best right now</span></summary>
+      <div class="body">
+        <p>Timing matters enormously in a wetland. Early July is past the spring peak — the great migrations are over and the orchids have finished — but it has its own riches: the water at its most beautiful, this year's chicks grown and flying, insects at their height, and some of the most spectacular birds at their most visible.</p>
+        <h4>The birds you'll actually see</h4>
+        <ul>
+          <li><span class="k">Pelicans</span> — the headline. Great white pelicans (this delta holds over half the world's breeding population) with big grey-brown fledged young, flying out at dawn and fishing in cooperative rafts; a few rarer, shyer Dalmatian pelicans mixed in.</li>
+          <li><span class="k">Salt-lake waders</span> — elegant pied avocets and black-winged stilts with chicks, and the real local specialty, <strong>collared pratincoles</strong> hawking insects over the salt flats at dawn and dusk (see the access note below).</li>
+          <li><span class="k">Herons, egrets, glossy ibis, spoonbills</span> — nesting and fledging on the floating reed islands, very active morning and evening; <strong>whiskered terns</strong> at their peak, constantly working the lily mats.</li>
+          <li><span class="k">Bee-eaters &amp; rollers</span> — jewel-bright, hunting from wires and the loess banks toward Halmyris; early July is prime time for them.</li>
+        </ul>
+        <h4>The water, the plants, the smaller life</h4>
+        <ul>
+          <li><span class="k">Water-lilies</span> — white and yellow, at their absolute peak through July; the defining sight of the channels.</li>
+          <li><span class="k">Sea-lavender</span> coming into flower in airy lilac clouds over the salt steppe — a genuine July highlight.</li>
+          <li><span class="k">Dragonflies &amp; damselflies</span> at their height — darters, skimmers, emperors; they conveniently fill the hot midday lull when the birds go quiet (and the bee-eaters hunt them).</li>
+          <li><span class="k">Pond terrapins and harmless dice &amp; grass snakes</span> basking on the banks; <span class="k">otters and golden jackals</span> at dawn and dusk for the lucky and the quiet.</li>
+        </ul>
+        <h4>What you've just missed</h4>
+        <p>The spring migration and its rare passage birds, the peak dawn chorus, and the orchids and irises — all of those are May into June. No regrets: July trades them for lilies, fledglings, dragonflies and warmth.</p>
+        <div class="note warn"><span class="t">Verify on arrival — the salt lake</span><p>Murighiol's salt lake (Lacul Sărături) is the classic five-minute dawn walk for the waders and the sea-lavender — but it may be a <strong>strictly protected zone</strong> you can only view from the edge, not walk onto. Sources disagree, so ask your guesthouse or the ARBDD office in Tulcea on arrival exactly where you're allowed to stand. It matters, because it was part of why we chose Murighiol.</p></div>
+      </div>
+    </details>
+
+    <details>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The strange &amp; the offbeat<span class="sub">ghosts of failed empires</span></summary>
+      <div class="body">
+        <p>The delta has a wonderful seam of the eerie and the unfinished, mostly left behind by the communist dream of conquering the marsh.</p>
+        <ul>
+          <li><span class="k">The Caraorman glass factory.</span> In the 1980s the regime began mining the great sand dunes to build a glass and metallurgy complex deep in the reserve. The revolution stopped it half-built, and its concrete skeletons and abandoned worker blocks now stand marooned among 7–9-metre dunes and subtropical oak forest — the trophy oddity of the whole delta. (Boat plus local transport; exterior viewing only.)</li>
+          <li><span class="k">The salt lake at dawn.</span> A surreal pink-and-white saline shimmer, mirror-flat at first light — flamingos have even turned up here. Five minutes from the village (mind the access note above).</li>
+          <li><span class="k">The polder ghost-land.</span> Around Dunavățu and Mahmudia, the land is scored with the dead-straight canals, embankments, abandoned farm buildings and silent pumping stations of the communist scheme to <em>drain</em> the delta into wheat fields — a haunting, accessible "abandoned communism" you can see from the road. (The full story is in the History tab.)</li>
+          <li><span class="k">Tulcea's industrialization mosaic.</span> A vast 1978 socialist mosaic — "The Heroism of the Working Class in the Industrialization of Tulcea" — sprawled across a residential block: the best easy hit of socialist-era public art within reach.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Monuments &amp; day trips by car<span class="sub">Halmyris, Enisala, Histria…</span></summary>
+      <div class="body">
+        <p>For most of these you drive up to Tulcea first (~40–50 min), then out along the lagoon rim, so treat the far ones as full days rather than quick hops. The full story behind them is in the History tab.</p>
+        <ul>
+          <li><span class="k">Halmyris</span> — five minutes from the village. The ruined Roman and Byzantine fort at the edge of the empire, with the painted crypt where two early Christian martyrs were buried and found again in 2001. Mostly low foundations, so read the history first and the place comes alive. Confirm it's open (it's an active dig).</li>
+          <li><span class="k">Enisala fortress</span> (~1 h) — the only standing medieval citadel in Dobrogea, broken towers on a hill above the Razelm lagoon; the most reliably impressive monument within reach. 20 lei, Tue–Sun.</li>
+          <li><span class="k">Histria</span> (~2 h, a full day) — the Greek city founded in 657 BC, the oldest town in Romania, with the largest classical ruins in the country and a good museum. The one site that truly <em>looks</em> ancient and monumental.</li>
+          <li><span class="k">Babadag</span> (~1 h) — the old Ottoman capital of the region: the early-17th-century Gazi Ali Pasha mosque and the shrine of the dervish-saint Sarı Saltık.</li>
+          <li><span class="k">Niculițel &amp; Cocoș Monastery</span> (~1 h) — the oldest early-Christian basilica and martyr crypt in Romania, paired with a peaceful working monastery.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- EAT / CUISINE -->
+  <section data-c="amber">
+    <div class="sec-head"><span class="n">4</span><h2>What you'll eat — and why</h2></div>
+    <p class="lead">Delta food is one of the trip's quiet pleasures, and it's a cuisine unlike anywhere else in Romania — born of exiles, fasting calendars and a world made entirely of fish.</p>
+
+    <details open>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The cuisine &amp; its story<span class="sub">a fisherman's table</span></summary>
+      <div class="body">
+        <h4>A kitchen built by exiles</h4>
+        <p>The delta's cooking is a <strong>Russian–Ukrainian–Romanian–Turkish–Greek mash</strong>, and that mixture is really a map of who fled here. The <strong>Lipovans</strong> — Russian Old Believers who rowed south in the 1700s to escape the Tsar's church — brought the soured soups, the sour cream and dill, the fish dumplings. The Ukrainian <strong>Haholi</strong> added their own fish cookery; Romanians the cornmeal <em>mămăligă</em>; the old Ottoman world a taste for brine and garlic. There was almost nothing to farm in a marsh, so the whole cuisine rests on one ingredient: <strong>freshwater fish</strong>, cooked a hundred ways.</p>
+        <h4>Why so many fish, and so plain</h4>
+        <p>The Old Believers keep a strict religious calendar with <strong>many fasting days</strong> — well over half the year — when meat and dairy are forbidden but fish often isn't. That piety quietly shaped the food: lean, fish-and-vegetable dishes, soured with lemon or brine rather than enriched, designed to be eaten again and again. What looks like simple fisherman's cooking is really a fasting cuisine perfected over centuries.</p>
+        <h4>The dishes to seek out</h4>
+        <ul>
+          <li><span class="k">Storceag</span> — the signature delta soup and the one to try first: a creamy fish broth (classically of sturgeon, now more often other fish) finished with sour cream, egg yolk and dill and sharpened with lemon. Pure Lipovan.</li>
+          <li><span class="k">Saramură</span> — fish grilled over reeds or wood, then bathed in a hot, garlicky salt brine, eaten with mămăligă. The taste of a fishing camp.</li>
+          <li><span class="k">Plachie</span> — fish slow-braised with a lot of onion, tomato and garlic.</li>
+          <li><span class="k">Borș / ciorbă de pește</span> — the sour fish soup, tart with fermented bran (<em>borș</em>) or lemon.</li>
+          <li><span class="k">Icre — salată de icre</span> — fish roe whipped pale and fluffy with oil and lemon into a spread for bread; the everyday "caviar" of the delta and an emblematic starter.</li>
+          <li><span class="k">Carp "la proțap"</span> — a whole carp splayed on a wooden stake and slow-roasted by the fire.</li>
+          <li>And the smaller Slavic things — <strong>vareniki</strong> and <strong>pelmeni</strong> (filled dumplings) — if a Lipovan grandmother is cooking.</li>
+        </ul>
+        <h4>The caviar story (and the rule)</h4>
+        <p>For a century this was <strong>sturgeon country</strong> — the great prehistoric fish ran up the Danube to spawn, and Danube caviar was world-famous. Overfishing and dams collapsed the populations, and since 2006 (made effectively permanent in 2021) <strong>wild sturgeon fishing and wild caviar are banned</strong>. So: any "wild Danube caviar" offered to you is illegal — refuse it. Only <strong>farmed, CITES-papered</strong> caviar is legal, and the honest, delicious local substitute is <em>salată de icre de crap</em>, carp-roe salad.</p>
+        <h4>How to actually eat well</h4>
+        <p>The best meals are not in restaurants but at the <strong>guesthouse table</strong> (full board, home recipes, the freshest fish) or a booked "gastronomic point" like <strong>Casa din Delta</strong> in Murighiol. A note of honesty locals will tell you: a surprising amount of "delta fish" on tourist menus is imported and frozen, so favour places that land their own catch (a <em>cherhana</em>, a fish-landing) and simply ask whether the fish is delta-fresh. Wash it down with a dry Dobrogea white from the Sarica-Niculițel vineyards just inland.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- KNOW -->
+  <section>
+    <div class="sec-head"><span class="n">5</span><h2>Know before you go</h2></div>
+    <details>
+      <summary><svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Permits, heat, mosquitoes, money, the drive<span class="sub">the practical bits</span></summary>
+      <div class="body">
+        <ul>
+          <li><span class="k">Permit.</span> The ARBDD biosphere permit is required — about 5 lei/day or 15 lei/week per person. Buy it at a SelfPay kiosk, online, or through your guesthouse; many boat trips include it.</li>
+          <li><span class="k">The July rhythm.</span> 30–40 °C, no shade on the water, serious mosquitoes at dawn and dusk, and a dead, scorching midday. So the day has a shape: <strong>on the water by ~06:00, rest through midday, out again in the late afternoon</strong>.</li>
+          <li><span class="k">Pack.</span> Strong repellent and long, loose sleeves for the dawn runs; hat, sunglasses, high-SPF; 1.5–2 litres of water each per boat trip; binoculars.</li>
+          <li><span class="k">Money &amp; signal.</span> Draw cash (lei) in Tulcea — boatmen and guesthouses are cash-first, and there's little or no phone signal once you're deep in the channels. Save offline maps.</li>
+          <li><span class="k">Fuel.</span> Fill up in Tulcea or Babadag — the last reliable stations before the rim, and none at all in the boat-only interior.</li>
+          <li><span class="k">The drive.</span> Roughly 6.5–8 hours from Sofia, via the Ruse–Giurgiu bridge, Bucharest and Tulcea. Don't try to arrive and boat the same day — give the delta at least two nights, ideally three.</li>
+          <li><span class="k">Book ahead.</span> It's peak season — reserve the guesthouse and the boatman a couple of weeks out.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    Put together for our early-July 2026 trip. Prices are 2024–2026 figures (≈5 lei = €1) — confirm when booking. Switch to <strong>The History</strong> tab for the full story of the place; where the local history is genuinely unsettled, it says so.
+  </footer>
+
+</div>
+</div>
+
+<!-- ============ HISTORY TAB ============ -->
+<div id="history" class="panel">
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kick">A History of a Small Place</div>
+    <h1>The Purple Lake</h1>
+    <p class="sub">Seven thousand years at Murighiol, where the Danube finally lets go of the land and becomes the sea.</p>
+  </header>
+
+  <p style="font-family:var(--serif);font-size:1.18rem;line-height:1.6;margin:1.5rem 0 1rem">
+    <span class="dropcap">The</span> name is the first clue. <em>Murighiol</em> is not a Romanian word at all — it is Turkish, left behind like a tidemark: <strong>mor göl</strong>, the <em>purple lake</em>, for the violet sheen that salt and silt throw across the water beside the village. To stand here at dawn is to stand on the last solid ground of a continent. It looks like nowhere. It is, in fact, one of the most layered places in Romania — a quiet village of three thousand souls with seven thousand years stacked underneath it, and the bones of a Roman frontier still in the soil at the edge of town.
+  </p>
+  <p style="font-family:var(--serif);font-size:1.06rem">This is the story of those layers, in order, from the first potters by the lagoon to the pelicans and fishermen of today.</p>
+
+  <section class="era" data-c="teal" style="border-top:none;margin-top:1.4rem;padding-top:1rem">
+    <span class="era-year">c. 5250 BC — the first people</span>
+    <h3>Potters by the lagoon</h3>
+    <p><span class="firstword">Long before</span> any empire, people were already living on these shores. Around 5250 BC a Neolithic farming culture flourished that archaeologists named <strong>Hamangia</strong> — after the very lagoon country you're looking at, the site of Baia-Hamangia beside Lake Golovița just down the coast. They left one of the most famous objects in all European prehistory: a small fired-clay figure of a man on a stool, elbows on knees, head in his hands, made around 5000 BC. We call him <strong>The Thinker</strong>.</p>
+    <p>Whether he is truly thinking, nobody knows — he was found in a grave, and he may be mourning, or he may be a god. But for seven thousand years a human being on this coast has sat with his chin in his hands, and we still don't quite know what he means. Later came the copper-working <strong>Gumelnița</strong> people, and then, in the early Iron Age, a culture named after the nearby town of <strong>Babadag</strong>. The land was never empty.</p>
+  </section>
+
+  <section class="era" data-c="teal">
+    <span class="era-year">7th c. BC — Getae &amp; Greeks</span>
+    <h3>The noblest of the Thracians, and the sailors from Miletus</h3>
+    <p><span class="firstword">By the time</span> the Greeks arrived, the interior belonged to the <strong>Getae</strong> — a Thracian people whom Herodotus called "the noblest and most just of the Thracians," close cousins of the <strong>Dacians</strong> of the Carpathians. A single warlord, <strong>Burebista</strong>, briefly forged them into one kingdom between about 82 and 44 BC — dying, as it happens, the same year as Julius Caesar.</p>
+    <p>Onto their coast sailed colonists from <strong>Miletus</strong>, across the Aegean. They founded <strong>Histria</strong> in the mid-7th century BC — the oldest city on Romanian soil, which struck the first coins ever minted in this land. On the cliffs of Cape Doloșman they built <strong>Argamum</strong>, whose distinction is bookish and lovely: it's the oldest place on all of Romanian soil to be <em>written down</em>, named by the geographer Hecataeus of Miletus in the late 6th century BC. The nomadic <strong>Scythians</strong> ranged the plains beyond — so present that the Greeks named the whole region <em>Scythia Minor</em>, a name that stuck for a thousand years.</p>
+    <div class="myth"><span class="tag">A myth to set down gently</span><p>You'll hear Argamum called "the oldest settlement in Romania." It isn't — the Hamangia potters were five thousand years older. What's true is finer: it's the oldest place here ever recorded <em>in writing</em>.</p></div>
+  </section>
+
+  <section class="era" data-c="amber">
+    <span class="era-year">1st – 7th c. AD — Rome at Halmyris</span>
+    <h3>The fort at the edge of the world</h3>
+    <p><span class="firstword">Then came</span> Rome — and here Murighiol steps onto the main stage of history. Two and a half kilometres east of the village stood <strong>Halmyris</strong>, "the salty place." It was the <em>last</em> fort on the empire's great Danube frontier, the easternmost link in a chain of garrisons that ran the river's length, and the first harbour a ship reached sailing up from the Black Sea. Whoever held Halmyris held the door to the Danube.</p>
+    <p>The Romans first threw up an earth-and-timber fort here in the late 1st century, then rebuilt it in stone under <strong>Trajan</strong>, the work done by detachments of two legions. A river fleet patrolled from its quays. When Diocletian reorganised the empire around AD 290, he carved this corner off into its own province with that old Greek name again: <strong>Scythia Minor</strong>. At its height Halmyris was a walled town of fifteen towers, with gates, baths and a bishop. You can walk its foundations today.</p>
+    <p class="pull">Two men were beheaded here for their faith around the year 290 — and seventeen centuries later, archaeologists found their bones exactly where the story said they would be.<span>The martyrs Epictet &amp; Astion, Halmyris</span></p>
+    <p>The town's most haunting relic is Christian. According to their <em>Passio</em>, two ascetics — <strong>Epictet</strong>, an older priest, and <strong>Astion</strong>, a young monk — were martyred here in Diocletian's persecution, around AD 290. A basilica later rose over the spot, with a small vaulted crypt painted with vines and inscribed, in Greek, with the name <strong>ASTION</strong>. In <strong>2001</strong> the archaeologist Mihail Zahariade opened that crypt and found human bones: two men, one about sixty-four and one about thirty-five, both showing signs of beheading — an almost eerie match for the ages the old text recorded. They are among the earliest martyrs' relics ever found in place on Romanian soil.</p>
+    <p>And then the frontier broke. In the winter of AD 384–5 the Danube froze solid and tribes walked across the ice and sacked the town. Earthquakes shook it; the river shifted and silted up its harbour. After one last rebuilding under Justinian, Halmyris was abandoned in the early 7th century, and Rome's long watch on the Danube ended.</p>
+  </section>
+
+  <section class="era" data-c="amber">
+    <span class="era-year">681 – 14th c. — Bulgaria &amp; the borderlands</span>
+    <h3>Where Bulgaria was born</h3>
+    <p><span class="firstword">Into the vacuum</span> came new peoples — and a new nation was born almost on Murighiol's doorstep. The Bulgar leader <strong>Asparuh</strong> made his first fortified camp, the <em>Onglos</em>, in the very marshes of the delta, in what is now Tulcea county. From here, in 680, his army beat the Byzantines, and by the treaty of <strong>681</strong> this region became the core of the <strong>First Bulgarian Empire</strong> — the moment historians take as the founding of Bulgaria itself. For centuries afterwards Dobrogea was Bulgarian and Slavic in speech and faith.</p>
+    <p>What followed were five hundred years of tug-of-war — Byzantines and Bulgarians trading the land back and forth, Kievan Rus' raiding through, Pechenegs and Cumans drifting across the steppe. In the 1260s a wandering Turkish holy man, the dervish <strong>Sarı Saltık</strong>, settled here; the town that grew around his tomb still carries his memory in its name, <strong>Babadag</strong>, "father mountain." By the 14th century a local prince, <strong>Dobrotitsa</strong>, ruled an independent little realm with its own navy — and gave his name to the whole region: <em>Dobrogea</em>. From the lagoon traded the <strong>Genoese</strong>, near the fortress of <strong>Enisala</strong>, whose broken towers still watch the water.</p>
+    <div class="myth"><span class="tag">Honest uncertainty</span><p>Guides love to call Enisala a "Genoese fortress," but nobody is truly sure who built it — Genoese, Byzantines and Bulgarians are all candidates, and every written mention comes <em>after</em> it was abandoned. Some history is simply unresolved, and that's part of its romance.</p></div>
+  </section>
+
+  <section class="era" data-c="amber">
+    <span class="era-year">1420 – 1878 — the Ottoman centuries</span>
+    <h3>Crescent, brine and exile</h3>
+    <p><span class="firstword">In 1420</span> the Ottomans absorbed Dobrogea, and for four and a half centuries this was an Ottoman land. <strong>Babadag</strong> became its chief town — grand enough that the Ottoman Grand Vizier sometimes wintered his armies there — and the elegant <strong>Gazi Ali Pasha Mosque</strong>, built around 1609, still stands with its tall stone minaret.</p>
+    <p>The delta filled, in these centuries, with the people who fish it still. From the 1700s came the <strong>Lipovans</strong> — Russian "Old Believers" who had refused the church reforms of 1652 and fled the Tsar, rowing south to the reedbeds where no one would trouble them. After Catherine the Great destroyed the Cossack stronghold of the Zaporizhian Sich in 1775, Ukrainian <strong>Haholi</strong> fishermen arrived too, taking the wild outer villages. Turks, Crimean Tatars, Greeks, Bulgarians, Romanians — the delta became a quiet refuge of languages and faiths. It was also a battlefield: the Russo-Turkish wars rolled across Dobrogea again and again.</p>
+    <div class="myth"><span class="tag">A claim to resist</span><p>Babadag's mosque is often billed as "the oldest in Romania." It isn't — the Esmahan Sultan mosque down in Mangalia is older. And Sarı Saltık's tomb here is only one of several across the Balkans that claim him; legend says he was buried in seven coffins at once.</p></div>
+  </section>
+
+  <section class="era" data-c="plum">
+    <span class="era-year">1856 – 1878 — engineers &amp; a new flag</span>
+    <h3>The river is straightened; the border moves</h3>
+    <p><span class="firstword">After the</span> Crimean War, the powers of Europe set up an international body, the <strong>European Commission of the Danube</strong>, to govern the river's mouths, with its capital at <strong>Sulina</strong> on the seaward edge of the delta. Its British engineer, Sir Charles Hartley, spent decades straightening the Sulina channel so ocean ships could reach inland — and the wrecks on the bar fell from over a hundred to a handful. Sulina became a giddy, cosmopolitan free port of Greeks, Turks, Romanians, Lipovans and Jews.</p>
+    <p>Then, in <strong>1878</strong>, after one more Russo-Turkish war, the Treaty of Berlin redrew the map: <strong>Northern Dobrogea, the delta and Murighiol included, became part of Romania</strong> for the first time. It was a bittersweet bargain — Romania gained the delta but had to hand southern Bessarabia back to Russia. Romania still marks the day each November.</p>
+  </section>
+
+  <section class="era" data-c="plum">
+    <span class="era-year">1947 – 1989 — the communist delta</span>
+    <h3>The dream of draining a wilderness</h3>
+    <p><span class="firstword">Communism</span> looked at the delta and saw not a wilderness to protect but a resource to conquer. First the reedbeds were harvested at industrial scale for paper. Then, under a 1979 decree, the regime set out to <em>drain</em> it — to wall off the water with dykes and turn marsh into wheat fields and fish farms. By 1990 roughly a <strong>quarter of the entire delta</strong>, some 97,000 hectares, had been embanked. The great <strong>Pardina</strong> polder swallowed nearly thirty thousand hectares; the number of natural lakes fell from 668 to 479. Right beside Murighiol, the <strong>Dunavăț</strong> fish-farm basins were carved out of the floodplain; out in the dunes, the half-finished <strong>Caraorman glass factory</strong> rose and was abandoned.</p>
+    <p>Even the village's name was conscripted: from <strong>1983 to 1996</strong>, Murighiol was officially called <em>Independența</em>. The purple lake had been renamed for a slogan.</p>
+    <p class="pull">They walled the water out. Then, after the dictatorship fell, they knocked the walls down again — and the delta came back.<span>The Babina &amp; Cernovca restorations, 1994–96</span></p>
+  </section>
+
+  <section class="era" data-c="gold">
+    <span class="era-year">1990 – today — the reserve</span>
+    <h3>Letting the water back in</h3>
+    <p><span class="firstword">When the</span> dictatorship collapsed in 1989, one of new Romania's first acts was to undo the drowning of the wetlands. In 1990 the whole delta — some 580,000 hectares — was declared a <strong>Biosphere Reserve</strong>; in 1991 UNESCO made it a World Heritage Site. And then came the boldest stroke of all: on the failed polders of <strong>Babina</strong> (1994) and <strong>Cernovca</strong> (1996), engineers deliberately <em>breached their own dykes</em> and let the Danube flood back in. The marsh healed astonishingly fast — otters and fish returned within seasons — and the project won a European conservation prize, becoming a model studied around the world.</p>
+    <p>Today the Danube Delta is the best-preserved in Europe, a wilderness of pelicans and lilies. The wild sturgeon that swam here since the age of dinosaurs are now protected by a fishing ban — and the old fishing villages, Murighiol among them, are quieter and greyer than they were, their young people drawn to the cities. The 2021 census counted <strong>2,959 people</strong> in the Murighiol commune, still nine-tenths Romanian with a thread of Ukrainian — the faded last weave of that great delta mosaic.</p>
+  </section>
+
+  <section class="era" data-c="gold">
+    <span class="era-year">and so —</span>
+    <h3>What you're standing on</h3>
+    <p>When you walk out at dawn to the salt lake — the <em>purple lake</em> that gave the village its Turkish name — remember what lies beneath the birdsong: the bones of two Roman martyrs and the foundations of the empire's last fort on the Danube. A few fields away, the river quietly fills a basin the communists once tried to drain. A Bulgarian nation was born in these reeds; a Turkish saint sleeps under a town named for him; Russian and Ukrainian exiles still mend their nets on the water. Seven thousand years, from a clay man with his head in his hands to a pelican lifting off a mirror-flat lake at sunrise — all folded into one small village where the river finally lets go.</p>
+
+    <ul class="tl">
+      <li><span class="yr">c. 5250 BC</span><span>Hamangia culture by the lagoons; "The Thinker" sculpted ~5000 BC.</span></li>
+      <li><span class="yr">7th c. BC</span><span>Milesian Greeks found Histria and Argamum on the coast.</span></li>
+      <li><span class="yr">~82–44 BC</span><span>Burebista unites the Getae &amp; Dacians.</span></li>
+      <li><span class="yr">late 1st c. AD</span><span>Rome builds the fort of Halmyris at Murighiol; rebuilt in stone under Trajan.</span></li>
+      <li><span class="yr">c. 290</span><span>Martyrdom of Epictet &amp; Astion; their relics found in 2001.</span></li>
+      <li><span class="yr">early 7th c.</span><span>Halmyris abandoned as the Danube frontier collapses.</span></li>
+      <li><span class="yr">681</span><span>Dobrogea becomes the core of the First Bulgarian Empire.</span></li>
+      <li><span class="yr">14th c.</span><span>Dobrotitsa's principality gives Dobrogea its name; Enisala fortress.</span></li>
+      <li><span class="yr">1420</span><span>The Ottomans take Dobrogea; Babadag becomes its chief town.</span></li>
+      <li><span class="yr">1700s</span><span>Lipovan &amp; Ukrainian exiles settle the delta as fishermen.</span></li>
+      <li><span class="yr">1856</span><span>European Commission of the Danube; Sulina's channel is straightened.</span></li>
+      <li><span class="yr">1878</span><span>Northern Dobrogea, &amp; the delta, joins Romania.</span></li>
+      <li><span class="yr">1979–89</span><span>Communist drainage; a quarter of the delta is diked. Murighiol → "Independența."</span></li>
+      <li><span class="yr">1990–91</span><span>Biosphere Reserve; UNESCO World Heritage.</span></li>
+      <li><span class="yr">1994–96</span><span>Babina &amp; Cernovca polders deliberately re-flooded — the delta restored.</span></li>
+      <li><span class="yr">2021</span><span>Murighiol commune: 2,959 people, gateway to the wild Sfântu Gheorghe arm.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    Drawn from a multi-source research pass — academic-referenced encyclopaedias, the Tulcea regional museum, the Orthodox life of Saints Epictet &amp; Astion, reporting on the Halmyris excavations and the Babina restoration, the UNESCO World Heritage datasheet, and Romania's 2021 census. Where the history is genuinely unsettled — the builder of Enisala, the date of the martyrdom, the origin of the name Dobrogea — the text says so rather than guessing.
+  </footer>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var id=t.getAttribute('data-tab');
+      tabs.forEach(function(x){x.classList.toggle('active',x===t);});
+      panels.forEach(function(p){p.classList.toggle('active',p.id===id);});
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
