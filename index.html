@@ -138,6 +138,60 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
   summary .sub{display:none}
   .tl li{grid-template-columns:5rem 1fr}
 }
+
+/* ===== folded in verbatim from murighiol-history-story.html ===== */
+/* contents */
+.toc{
+  font-family:var(--sans);font-size:.9rem;line-height:1.5;
+  background:var(--card);border:1px solid var(--rule);border-radius:12px;
+  padding:1.2rem 1.4rem;margin:2.2rem 0 .5rem;
+}
+.toc .tt{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.7rem}
+.toc ol{margin:0;padding-left:1.2rem;columns:2;column-gap:1.6rem}
+.toc li{margin:.18rem 0;break-inside:avoid}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+@media(max-width:560px){.toc ol{columns:1}}
+
+/* lede */
+.lede{font-size:1.28rem;line-height:1.6;margin:2.5rem 0 1rem}
+.lede .dropcap::first-letter{
+  font-size:4.4rem;line-height:.78;float:left;margin:.32rem .6rem 0 0;color:var(--amber);font-weight:700;
+}
+
+/* era heading — fuller history uses h2 */
+.era h2{font-size:1.8rem;line-height:1.18;margin:.1rem 0 1rem;font-weight:700;letter-spacing:-.01em}
+
+/* figure aside (numbers / details) */
+.fig{
+  background:var(--sand-soft);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;
+  padding:.85rem 1.15rem;margin:1.5rem 0;font-family:var(--sans);font-size:.9rem;line-height:1.55;color:var(--ink);
+}
+.fig .tag{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:.3rem}
+.fig p{margin:0}
+
+/* small motif rule */
+.reed{display:block;margin:2.2rem auto;width:80px;height:18px;opacity:.55}
+
+/* closing */
+.coda{margin:3rem 0 0;padding-top:2.4rem;border-top:1px solid var(--rule);font-size:1.16rem;line-height:1.62}
+.coda .big{font-size:1.34rem}
+
+/* timeline */
+.timeline{margin:3rem 0 0;padding-top:2.2rem;border-top:1px solid var(--rule)}
+.timeline h3,.sources h3,.corrections h3{font-family:var(--sans);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 1.1rem}
+
+/* corrections */
+.corrections{margin:3rem 0 0;padding-top:2.2rem;border-top:1px solid var(--rule)}
+.corrections dl{margin:0;font-size:.97rem;line-height:1.62}
+.corrections dt{font-weight:700;margin:1.1rem 0 .1rem}
+.corrections dt:first-of-type{margin-top:0}
+.corrections dd{margin:0;color:var(--muted)}
+
+/* sources */
+.sources{margin:2.6rem 0 0;padding-top:1.8rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.65}
+.sources a{color:var(--muted);text-decoration:underline}
+
 </style>
 <script>document.documentElement.classList.add('has-js');</script>
 </head>
@@ -367,102 +421,251 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
     <p class="sub">Seven thousand years at Murighiol, where the Danube finally lets go of the land and becomes the sea.</p>
   </header>
 
-  <p style="font-family:var(--serif);font-size:1.18rem;line-height:1.6;margin:1.5rem 0 1rem">
-    <span class="dropcap">The</span> name is the first clue. <em>Murighiol</em> is not a Romanian word at all — it is Turkish, left behind like a tidemark: <strong>mor göl</strong>, the <em>purple lake</em>, for the violet sheen that salt and silt throw across the water beside the village. To stand here at dawn is to stand on the last solid ground of a continent. It looks like nowhere. It is, in fact, one of the most layered places in Romania — a quiet village of three thousand souls with seven thousand years stacked underneath it, and the bones of a Roman frontier still in the soil at the edge of town.
-  </p>
-  <p style="font-family:var(--serif);font-size:1.06rem">This is the story of those layers, in order, from the first potters by the lagoon to the pelicans and fishermen of today.</p>
+  <p class="lede"><span class="dropcap">The</span> name is the first clue. <em>Murighiol</em> is not a Romanian word at all — it is Turkish, left behind like a tidemark: <strong>mor göl</strong>, the <em>purple lake</em>, for the violet sheen that salt and silt throw across the water beside the village. To stand here at dawn is to stand on the last solid ground of a continent, where Europe's second-largest delta dissolves into reedbeds and lagoons. It looks like nowhere. It is, in fact, one of the most layered places in Romania — a quiet commune of fewer than three thousand souls with seven thousand years stacked underneath it, and the bones of a Roman frontier still in the soil at the edge of town.</p>
 
-  <section class="era" data-c="teal" style="border-top:none;margin-top:1.4rem;padding-top:1rem">
+  <p>This is the story of those layers, told in order — from the first potters by the lagoon to the pelicans and fishermen of today. It is a long story for a small place, so here is the shape of it.</p>
+
+  <nav class="toc">
+    <div class="tt">The chapters</div>
+    <ol>
+      <li><a href="#c1">Potters by the lagoon</a></li>
+      <li><a href="#c2">The Getae and the Greeks</a></li>
+      <li><a href="#c3">The fort at the edge of the world</a></li>
+      <li><a href="#c4">The two martyrs</a></li>
+      <li><a href="#c5">When the river froze</a></li>
+      <li><a href="#c6">Where Bulgaria was born</a></li>
+      <li><a href="#c7">The borderland and the despot</a></li>
+      <li><a href="#c8">Crescent, brine and a winter capital</a></li>
+      <li><a href="#c9">The exiles who became the delta</a></li>
+      <li><a href="#c10">The river straightened, the border moved</a></li>
+      <li><a href="#c11">The dream of draining a wilderness</a></li>
+      <li><a href="#c12">Letting the water back in</a></li>
+    </ol>
+  </nav>
+
+  <!-- ERA 1 -->
+  <section class="era" data-c="teal" id="c1">
     <span class="era-year">c. 5250 BC — the first people</span>
-    <h3>Potters by the lagoon</h3>
-    <p><span class="firstword">Long before</span> any empire, people were already living on these shores. Around 5250 BC a Neolithic farming culture flourished that archaeologists named <strong>Hamangia</strong> — after the very lagoon country you're looking at, the site of Baia-Hamangia beside Lake Golovița just down the coast. They left one of the most famous objects in all European prehistory: a small fired-clay figure of a man on a stool, elbows on knees, head in his hands, made around 5000 BC. We call him <strong>The Thinker</strong>.</p>
-    <p>Whether he is truly thinking, nobody knows — he was found in a grave, and he may be mourning, or he may be a god. But for seven thousand years a human being on this coast has sat with his chin in his hands, and we still don't quite know what he means. Later came the copper-working <strong>Gumelnița</strong> people, and then, in the early Iron Age, a culture named after the nearby town of <strong>Babadag</strong>. The land was never empty.</p>
+    <h2>Potters by the lagoon</h2>
+    <p><span class="firstword">Long before</span> any empire, people were already living on these shores. Between roughly 5250 and 4550 BC a Late Neolithic farming culture flourished here that archaeologists named <strong>Hamangia</strong> — after the very lagoon country you are looking at, the site of Baia-Hamangia beside Lake Golovița, just down the coast. They herded, they fished the lagoons, and they made pottery; and they left behind one of the most famous objects in all of European prehistory.</p>
+    <p>It is a small fired-clay figure of a man seated on a low stool, elbows on knees, head resting in his hands, made around 5000 BC. It was unearthed in 1956 in a cemetery near Cernavodă, paired with a second figure, a woman seated with one knee drawn up. We call him <strong>The Thinker of Hamangia</strong> — but the name is ours, not his. He was found in a grave, and the truth is that nobody knows whether he is thinking, grieving, or being a god.</p>
+    <p>That uncertainty is worth sitting with, because it sets the tone for everything that follows here: for seven thousand years a human being on this stretch of the Black Sea coast has sat with his chin in his hands, and we still cannot quite read his mind. After the Hamangia people came the copper-working <strong>Gumelnița</strong> culture, around 4700–4000 BC, and then, in the early Iron Age, a culture archaeologists named after the nearby delta-edge town of <strong>Babadag</strong> — its exact dates still being revised by radiocarbon. The land, in other words, was never empty. Layer was laid on layer long before anyone wrote a word down.</p>
+    <div class="myth">
+      <span class="tag">A famous figure, an open question</span>
+      <p>"The Thinker" is sold on every postcard as a Neolithic philosopher. He may be — but read honestly, his pose has been interpreted just as plausibly as mourning, or as a deity. The figure is real and astonishing; the cheerful "first philosopher" caption is a guess.</p>
+    </div>
   </section>
 
-  <section class="era" data-c="teal">
+  <!-- ERA 2 -->
+  <section class="era" data-c="teal" id="c2">
     <span class="era-year">7th c. BC — Getae &amp; Greeks</span>
-    <h3>The noblest of the Thracians, and the sailors from Miletus</h3>
-    <p><span class="firstword">By the time</span> the Greeks arrived, the interior belonged to the <strong>Getae</strong> — a Thracian people whom Herodotus called "the noblest and most just of the Thracians," close cousins of the <strong>Dacians</strong> of the Carpathians. A single warlord, <strong>Burebista</strong>, briefly forged them into one kingdom between about 82 and 44 BC — dying, as it happens, the same year as Julius Caesar.</p>
-    <p>Onto their coast sailed colonists from <strong>Miletus</strong>, across the Aegean. They founded <strong>Histria</strong> in the mid-7th century BC — the oldest city on Romanian soil, which struck the first coins ever minted in this land. On the cliffs of Cape Doloșman they built <strong>Argamum</strong>, whose distinction is bookish and lovely: it's the oldest place on all of Romanian soil to be <em>written down</em>, named by the geographer Hecataeus of Miletus in the late 6th century BC. The nomadic <strong>Scythians</strong> ranged the plains beyond — so present that the Greeks named the whole region <em>Scythia Minor</em>, a name that stuck for a thousand years.</p>
-    <div class="myth"><span class="tag">A myth to set down gently</span><p>You'll hear Argamum called "the oldest settlement in Romania." It isn't — the Hamangia potters were five thousand years older. What's true is finer: it's the oldest place here ever recorded <em>in writing</em>.</p></div>
+    <h2>The Getae and the Greeks</h2>
+    <p><span class="firstword">By the time</span> the Greeks arrived, the interior belonged to the <strong>Getae</strong> — a Thracian people whom Herodotus called "the noblest and most just of the Thracians." They were close cousins of the <strong>Dacians</strong> of the Carpathian mountains — so alike that historians often simply write "Geto-Dacian" — and a single warlord, <strong>Burebista</strong>, briefly forged them into one great kingdom between about 82 and 44 BC, subjugating even the Greek cities on the coast. He died, as it happens, the same year as Julius Caesar.</p>
+    <p>Onto their coast, generations earlier, had sailed colonists from <strong>Miletus</strong>, on the far side of the Aegean. They founded <strong>Histria</strong> — ancient Istros — in the mid-7th century BC: the oldest city on Romanian soil, a town of the cult of Apollo Ietros, "Apollo the Healer," which struck the first coins ever minted in this land around 480 BC. A little to the south, on the cliffs of Cape Doloșman above what is now the Razim lagoon, they built <strong>Argamum</strong> — to the Greeks, <em>Orgame</em>. Its real distinction is bookish and lovely: it is the oldest place on all of Romanian soil to be <em>written down</em>, named by the geographer Hecataeus of Miletus in the late 6th century BC.</p>
+    <p>And beyond the farmed coast ranged the <strong>Scythians</strong> — Iranian-speaking nomads of the open steppe, mounted, mobile and feared. They were so much the defining presence of these plains that the Greeks named the whole region after them: <em>Scythia Minor</em>, "lesser Scythia," a name that would outlast the Scythians themselves and become, a thousand years later, the official name of a Roman province.</p>
+    <div class="myth">
+      <span class="tag">A myth to put down gently</span>
+      <p>You'll hear Argamum called "the oldest settlement in Romania." It isn't — the Hamangia potters were some five thousand years older. What's true is narrower and finer: it is the oldest place here ever recorded <em>in writing</em>. A sentence, not a settlement, is what makes it first.</p>
+    </div>
   </section>
 
-  <section class="era" data-c="amber">
-    <span class="era-year">1st – 7th c. AD — Rome at Halmyris</span>
-    <h3>The fort at the edge of the world</h3>
-    <p><span class="firstword">Then came</span> Rome — and here Murighiol steps onto the main stage of history. Two and a half kilometres east of the village stood <strong>Halmyris</strong>, "the salty place." It was the <em>last</em> fort on the empire's great Danube frontier, the easternmost link in a chain of garrisons that ran the river's length, and the first harbour a ship reached sailing up from the Black Sea. Whoever held Halmyris held the door to the Danube.</p>
-    <p>The Romans first threw up an earth-and-timber fort here in the late 1st century, then rebuilt it in stone under <strong>Trajan</strong>, the work done by detachments of two legions. A river fleet patrolled from its quays. When Diocletian reorganised the empire around AD 290, he carved this corner off into its own province with that old Greek name again: <strong>Scythia Minor</strong>. At its height Halmyris was a walled town of fifteen towers, with gates, baths and a bishop. You can walk its foundations today.</p>
-    <p class="pull">Two men were beheaded here for their faith around the year 290 — and seventeen centuries later, archaeologists found their bones exactly where the story said they would be.<span>The martyrs Epictet &amp; Astion, Halmyris</span></p>
-    <p>The town's most haunting relic is Christian. According to their <em>Passio</em>, two ascetics — <strong>Epictet</strong>, an older priest, and <strong>Astion</strong>, a young monk — were martyred here in Diocletian's persecution, around AD 290. A basilica later rose over the spot, with a small vaulted crypt painted with vines and inscribed, in Greek, with the name <strong>ASTION</strong>. In <strong>2001</strong> the archaeologist Mihail Zahariade opened that crypt and found human bones: two men, one about sixty-four and one about thirty-five, both showing signs of beheading — an almost eerie match for the ages the old text recorded. They are among the earliest martyrs' relics ever found in place on Romanian soil.</p>
-    <p>And then the frontier broke. In the winter of AD 384–5 the Danube froze solid and tribes walked across the ice and sacked the town. Earthquakes shook it; the river shifted and silted up its harbour. After one last rebuilding under Justinian, Halmyris was abandoned in the early 7th century, and Rome's long watch on the Danube ended.</p>
+  <svg class="reed" viewBox="0 0 80 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M14 17 L14 3 M14 6 C10 5 9 2 10 1 M14 8 C18 7 19 4 18 3" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
+    <path d="M40 17 L40 1 M40 5 C36 4 35 1 36 0 M40 7 C44 6 45 3 44 2" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
+    <path d="M66 17 L66 4 M66 7 C62 6 61 3 62 2 M66 9 C70 8 71 5 70 4" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
+  </svg>
+
+  <!-- ERA 3 -->
+  <section class="era" data-c="amber" id="c3">
+    <span class="era-year">late 1st – 4th c. AD — Rome at Halmyris</span>
+    <h2>The fort at the edge of the world</h2>
+    <p><span class="firstword">Then came</span> Rome — and this is where Murighiol steps onto the main stage of history. Two and a half kilometres east of the modern village stood <strong>Halmyris</strong>, a name meaning "the salty," or "the brackish," place. It was the <em>last</em> fort on the empire's great Danube frontier, the easternmost link in a chain of garrisons that ran the entire length of the river, and the first harbour a ship would reach sailing up from the Black Sea. Whoever held Halmyris held the door to the Danube.</p>
+    <p>The Romans first threw up an earth-and-timber fort here under the Flavian emperors in the late 1st century, then rebuilt it in stone under <strong>Trajan</strong>, the work done by detachments of two legions — the <strong>First Italica</strong> and the <strong>Eleventh Claudia</strong>. From its quays operated the Roman Danube fleet, the <em>Classis Flavia Moesica</em>. And when the emperor <strong>Diocletian</strong> reorganised the empire at the end of the 3rd century, he detached this corner from the province of Lower Moesia and gave it that old Greek name once more: <strong>Scythia Minor</strong>, with its capital at Tomis — today's Constanța.</p>
+    <div class="fig">
+      <span class="tag">What survives in the ground</span>
+      <p>At its height Halmyris was an irregular walled polygon studded with <strong>fifteen towers</strong>, with monumental north and west gates, a 4th-century bath-house, barracks and a central basilica. Excavated mainly in the 2000s and 2010s by the archaeologists <strong>Mihail Zahariade</strong> and <strong>John Karavas</strong>, its foundations can be walked today — five minutes from the village.</p>
+    </div>
+    <p>This was not a lonely watchtower but a small frontier town with a garrison, a fleet, traders, a bath-house to sweat in and, in time, a bishop — a working knot of the Roman world set down where Europe runs out. And it is here that the most haunting story of the whole region begins.</p>
   </section>
 
-  <section class="era" data-c="amber">
-    <span class="era-year">681 – 14th c. — Bulgaria &amp; the borderlands</span>
-    <h3>Where Bulgaria was born</h3>
-    <p><span class="firstword">Into the vacuum</span> came new peoples — and a new nation was born almost on Murighiol's doorstep. The Bulgar leader <strong>Asparuh</strong> made his first fortified camp, the <em>Onglos</em>, in the very marshes of the delta, in what is now Tulcea county. From here, in 680, his army beat the Byzantines, and by the treaty of <strong>681</strong> this region became the core of the <strong>First Bulgarian Empire</strong> — the moment historians take as the founding of Bulgaria itself. For centuries afterwards Dobrogea was Bulgarian and Slavic in speech and faith.</p>
-    <p>What followed were five hundred years of tug-of-war — Byzantines and Bulgarians trading the land back and forth, Kievan Rus' raiding through, Pechenegs and Cumans drifting across the steppe. In the 1260s a wandering Turkish holy man, the dervish <strong>Sarı Saltık</strong>, settled here; the town that grew around his tomb still carries his memory in its name, <strong>Babadag</strong>, "father mountain." By the 14th century a local prince, <strong>Dobrotitsa</strong>, ruled an independent little realm with its own navy — and gave his name to the whole region: <em>Dobrogea</em>. From the lagoon traded the <strong>Genoese</strong>, near the fortress of <strong>Enisala</strong>, whose broken towers still watch the water.</p>
-    <div class="myth"><span class="tag">Honest uncertainty</span><p>Guides love to call Enisala a "Genoese fortress," but nobody is truly sure who built it — Genoese, Byzantines and Bulgarians are all candidates, and every written mention comes <em>after</em> it was abandoned. Some history is simply unresolved, and that's part of its romance.</p></div>
+  <!-- ERA 4 -->
+  <section class="era" data-c="amber" id="c4">
+    <span class="era-year">c. 290 AD — the persecution</span>
+    <h2>The two martyrs</h2>
+    <p><span class="firstword">According to</span> their <em>Passio</em> — the early account of their deaths — two ascetics lived and preached at Halmyris in the last great persecution of Christians, under Diocletian. One was <strong>Epictet</strong>, an older priest; the other <strong>Astion</strong>, a young monk, said to be barely out of his twenties. Around the year 290 AD, the story goes, both were arrested, tortured and beheaded for their faith.</p>
+    <p>After Christianity triumphed a generation later, a basilica was raised over the place. Beneath it lay a small vaulted crypt, its walls painted with vines, and on one of them, scratched in Greek, a single name: <strong>ASTION</strong>. For seventeen centuries that was all there was — a name on a wall and an old text few outside the Church had read.</p>
+    <p class="pull">Two men were beheaded here for their faith around the year 290 — and seventeen centuries later, archaeologists found their bones exactly where the story said they would be.<span>The martyrs Epictet and Astion, Halmyris</span></p>
+    <p>Then, in <strong>2001</strong>, Mihail Zahariade opened the crypt. Inside were human bones — two men, one of them about sixty-four years old and the other about thirty-five, and both skeletons bore the marks of beheading. The ages were an almost eerie match for the old priest and the young monk of the <em>Passio</em>. They are among the very earliest martyrs' relics ever recovered <em>in place</em> on Romanian soil — a case where a faith-story written down in late antiquity and a spade turned in the 21st century met in the same small painted room.</p>
+    <div class="myth">
+      <span class="tag">How sure can we be?</span>
+      <p>The skeletons, the crypt and the name are solid archaeology. The precise <em>year</em> — 290 — comes from the hagiography rather than from any dated inscription, so treat it as the tradition's date, plausible but not provable. What's remarkable is not the calendar but the coincidence of two old men's ages.</p>
+    </div>
   </section>
 
-  <section class="era" data-c="amber">
+  <!-- ERA 5 -->
+  <section class="era" data-c="amber" id="c5">
+    <span class="era-year">384/5 – 7th c. AD — the collapse</span>
+    <h2>When the river froze</h2>
+    <p><span class="firstword">The end</span> came, as it so often did on this frontier, with the winter. In the cold of AD 384–5 the Danube froze solid from bank to bank, and tribes from beyond simply walked across the ice and sacked the town. Halmyris was patched up and lived on, battered by earthquakes and by a river that kept shifting its bed and silting up the harbour that had been the fort's whole reason to exist.</p>
+    <p>There was one last flourish. In the 6th century the great builder-emperor <strong>Justinian</strong>, trying to shore up the Danube line one final time, had the fort rebuilt. But the world it guarded was already gone. As Avars and Slavs pressed down across the river and Byzantine control of the interior dissolved around the year 600, Halmyris was abandoned in the early 7th century — and Rome's six-hundred-year watch on the lower Danube quietly ended. The reeds moved back in over the bath-house and the basilica, and the place became, once again, simply the salty ground at the edge of the marsh.</p>
+  </section>
+
+  <svg class="reed" viewBox="0 0 80 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M14 17 L14 3 M14 6 C10 5 9 2 10 1 M14 8 C18 7 19 4 18 3" stroke="var(--amber)" stroke-width="1.2" fill="none"/>
+    <path d="M40 17 L40 1 M40 5 C36 4 35 1 36 0 M40 7 C44 6 45 3 44 2" stroke="var(--amber)" stroke-width="1.2" fill="none"/>
+    <path d="M66 17 L66 4 M66 7 C62 6 61 3 62 2 M66 9 C70 8 71 5 70 4" stroke="var(--amber)" stroke-width="1.2" fill="none"/>
+  </svg>
+
+  <!-- ERA 6 -->
+  <section class="era" data-c="amber" id="c6">
+    <span class="era-year">680 – 1000 — the birth of a nation</span>
+    <h2>Where Bulgaria was born</h2>
+    <p><span class="firstword">Into the vacuum</span> came new peoples — and, remarkably, a new nation was born almost on Murighiol's doorstep. The Bulgar leader <strong>Asparuh</strong>, pushing west with his horsemen from the steppe, made his first fortified camp — the <em>Onglos</em>, a marsh-protected stronghold thought to lie near Peuce Island in what is now Tulcea county, deep in the delta itself. From there, at the <strong>Battle of Ongal in 680</strong>, his army defeated the Byzantine emperor's forces. By the treaty that followed in <strong>681</strong>, this whole region became the core of the <strong>First Bulgarian Empire</strong> — the moment historians take as the founding of Bulgaria as a state.</p>
+    <p>For centuries afterwards Dobrogea was Bulgarian and Slavic in speech and in faith, its early capitals just to the south at <strong>Pliska</strong> and the rock-cut sanctuary of <strong>Madara</strong>, its church centre at Silistra on the river. The land's Slavic character is written into the stones: a 10th-century inscription from Mircea Vodă names a local <em>zhupan</em>, Dimitri, in the year 943. For a Bulgarian standing at Murighiol's salt lake, this is not foreign history at all — it is the cradle.</p>
+    <div class="fig">
+      <span class="tag">The tug-of-war that followed</span>
+      <p>Nothing here stayed settled. Sviatoslav of Kiev stormed in around 968; the Byzantines reconquered the river in 971 and ran it as the frontier province of <em>Paristrion</em> after 1018; the <strong>Second Bulgarian Empire</strong> rose again from 1185; and Pechenegs and Cumans drifted across the plains in between. The delta was a doorway, and everyone came through it.</p>
+    </div>
+  </section>
+
+  <!-- ERA 7 -->
+  <section class="era" data-c="plum" id="c7">
+    <span class="era-year">1263 – 1420 — saints, princes and merchants</span>
+    <h2>The borderland and the despot</h2>
+    <p><span class="firstword">In the 1260s</span> a new thread arrives. A body of Seljuk Turks under the exiled sultan <strong>Kaykaus II</strong> settled in Dobrogea, and with them came a wandering dervish, the holy man <strong>Sarı Saltık</strong>. He would become the patron-legend of the region, and the town that grew up around his tomb still carries his memory in its very name — <strong>Babadag</strong>, from the Turkish for "father mountain."</p>
+    <p>By the 14th century the region had pulled itself into a small independent realm of its own. A local lord named <strong>Balik</strong> rose first, and then his successor <strong>Dobrotitsa</strong> — a Christian prince who ruled from the cliff-fortress of Kaliakra, kept his own navy, and threw his weight into the great maritime rivalry of the age, siding with Venice against Genoa. It is from Dobrotitsa that the whole region takes its name: <em>Dobrogea</em>. (That derivation is the majority view; a few scholars argue for other roots, so it is offered here as the likeliest, not the certain, origin.)</p>
+    <p>Meanwhile, on the Razim lagoon just south of Murighiol, the tireless <strong>Genoese</strong> merchants of the Black Sea ran their trade, in the shadow of the fortress of <strong>Enisala</strong> — Heracleea to the Greeks — whose broken towers still stand on their hill above the water. The Wallachian prince <strong>Mircea the Elder</strong> held Dobrogea briefly, from about 1406 to 1411, before the Ottomans took Enisala around 1417–1420 and the independent interlude closed for good.</p>
+    <div class="myth">
+      <span class="tag">Honest uncertainty</span>
+      <p>Guides love to call Enisala a "Genoese fortress," but the truth is that nobody is sure who built it — Genoese, Byzantines and Bulgarians are all candidates, and every surviving written mention of it comes <em>after</em> it had already been abandoned. Some history is simply unresolved, and that's part of its romance.</p>
+    </div>
+  </section>
+
+  <!-- ERA 8 -->
+  <section class="era" data-c="amber" id="c8">
     <span class="era-year">1420 – 1878 — the Ottoman centuries</span>
-    <h3>Crescent, brine and exile</h3>
-    <p><span class="firstword">In 1420</span> the Ottomans absorbed Dobrogea, and for four and a half centuries this was an Ottoman land. <strong>Babadag</strong> became its chief town — grand enough that the Ottoman Grand Vizier sometimes wintered his armies there — and the elegant <strong>Gazi Ali Pasha Mosque</strong>, built around 1609, still stands with its tall stone minaret.</p>
-    <p>The delta filled, in these centuries, with the people who fish it still. From the 1700s came the <strong>Lipovans</strong> — Russian "Old Believers" who had refused the church reforms of 1652 and fled the Tsar, rowing south to the reedbeds where no one would trouble them. After Catherine the Great destroyed the Cossack stronghold of the Zaporizhian Sich in 1775, Ukrainian <strong>Haholi</strong> fishermen arrived too, taking the wild outer villages. Turks, Crimean Tatars, Greeks, Bulgarians, Romanians — the delta became a quiet refuge of languages and faiths. It was also a battlefield: the Russo-Turkish wars rolled across Dobrogea again and again.</p>
-    <div class="myth"><span class="tag">A claim to resist</span><p>Babadag's mosque is often billed as "the oldest in Romania." It isn't — the Esmahan Sultan mosque down in Mangalia is older. And Sarı Saltık's tomb here is only one of several across the Balkans that claim him; legend says he was buried in seven coffins at once.</p></div>
+    <h2>Crescent, brine and a winter capital</h2>
+    <p><span class="firstword">In 1420</span>, after Bayezid I had already taken Babadag in 1393, the Ottomans absorbed Dobrogea completely, and for the next four and a half centuries this was an Ottoman land. <strong>Babadag</strong> became its chief town — grand enough that the Ottoman Grand Vizier sometimes wintered his armies there on campaign. Its finest building still stands: the <strong>Gazi Ali Pasha Mosque</strong>, raised around 1609–10, with a stone minaret some twenty-one metres tall and the founder's domed tomb, his <em>türbe</em>, beside it.</p>
+    <p>And the dervish was not forgotten. Over Sarı Saltık's grave the Ottomans built a proper shrine — the mausoleum completed in <strong>1488</strong> under Sultan Bayezid II, rebuilt in 1828 and restored again as recently as 2007 — making Babadag a place of pilgrimage as well as a seat of power. Around these towns settled <strong>Crimean and Nogai Tatars</strong> and Turkish families, giving northern Dobrogea a population that, by the time it changed hands in 1878, was a genuine patchwork: Tatars the largest single group, then Turks, then Romanians, Bulgarians and Russian Lipovans — though those early figures are contested and should be read as rough proportions, not a census.</p>
+    <p>For all its mosques and pilgrims, Dobrogea was also a recurring battlefield. The <strong>Russo-Turkish wars</strong> rolled across it again and again — in 1768–74, in 1853–56, in 1877–78 — and the delta towns paid for it: Russian troops took Tulcea and Isaccea and entered Babadag in 1809, and Babadag itself was bombarded in 1854. Empire after empire used this marsh as a road, and the people who actually lived in it learned to keep to the water, where the armies could not easily follow.</p>
+    <div class="myth">
+      <span class="tag">Two claims to resist</span>
+      <p>Babadag's Gazi Ali Pasha mosque is often billed as "the oldest in Romania." It isn't — the Esmahan Sultan mosque down in Mangalia, from the 1570s, is older. And Sarı Saltık's tomb here is only one of several across the Balkans that claim him; legend cheerfully says he was buried in seven coffins at once, in seven places, to foil his enemies.</p>
+    </div>
   </section>
 
-  <section class="era" data-c="plum">
+  <!-- ERA 9 -->
+  <section class="era" data-c="plum" id="c9">
+    <span class="era-year">17th – 19th c. — the people who stayed</span>
+    <h2>The exiles who became the delta</h2>
+    <p><span class="firstword">Empires</span> marched across the surface of Dobrogea; but the people who settled into its reedbeds and stayed were, almost all of them, running <em>away</em> from something. The delta's human character — the one you still meet on the water today — was made by exiles.</p>
+    <p>First came the <strong>Lipovans</strong>: Russian "Old Believers" who had refused the church reforms pushed through by Patriarch Nikon in <strong>1652</strong>, and who, rather than cross themselves with three fingers instead of two, fled the Tsar's persecution south to where no authority could easily reach them. They rowed into the delta through the 17th and 18th centuries and built villages like <strong>Sarichioi</strong> and <strong>Jurilovca</strong>, keeping their old rites, their old calendar and their blue-painted wooden houses. Then, after Catherine the Great destroyed the Cossack stronghold of the <strong>Zaporizhian Sich in 1775</strong>, Ukrainian fishermen — the <strong>Haholi</strong> — arrived too, taking the wildest outer villages of Letea, Caraorman and Sfântu Gheorghe.</p>
+    <p>To these were added Turks, Crimean Tatars, Greeks, Bulgarians and Romanians, until the delta became one of Europe's quiet mosaics of language and faith — a place where a man might cross himself one way and his neighbour another, and both be left in peace to fish the same channel. Murighiol itself was a small knot of this weave: a late-19th-century count recorded something like six hundred and ninety Ukrainians and a hundred Tatars living here. And the village's very name is a fossil of that mixed past — Turkish <em>mor göl</em>, the purple lake, named for the salt water beside it (the Institute of Linguistics settled the etymology in 1978; older Ottoman forms like "Mori-Gol" are recorded but shakier).</p>
+    <div class="fig">
+      <span class="tag">Why a fishing village fasts so much</span>
+      <p>The Old Believers keep a strict religious calendar with many fasting days — well over half the year — on which meat and dairy are forbidden but fish is often allowed. That piety quietly shaped a whole cuisine of lean, soured fish dishes; the food the delta is famous for is, at bottom, a fasting people's food. Faith you can taste.</p>
+    </div>
+  </section>
+
+  <svg class="reed" viewBox="0 0 80 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M14 17 L14 3 M14 6 C10 5 9 2 10 1 M14 8 C18 7 19 4 18 3" stroke="var(--plum)" stroke-width="1.2" fill="none"/>
+    <path d="M40 17 L40 1 M40 5 C36 4 35 1 36 0 M40 7 C44 6 45 3 44 2" stroke="var(--plum)" stroke-width="1.2" fill="none"/>
+    <path d="M66 17 L66 4 M66 7 C62 6 61 3 62 2 M66 9 C70 8 71 5 70 4" stroke="var(--plum)" stroke-width="1.2" fill="none"/>
+  </svg>
+
+  <!-- ERA 10 -->
+  <section class="era" data-c="plum" id="c10">
     <span class="era-year">1856 – 1878 — engineers &amp; a new flag</span>
-    <h3>The river is straightened; the border moves</h3>
-    <p><span class="firstword">After the</span> Crimean War, the powers of Europe set up an international body, the <strong>European Commission of the Danube</strong>, to govern the river's mouths, with its capital at <strong>Sulina</strong> on the seaward edge of the delta. Its British engineer, Sir Charles Hartley, spent decades straightening the Sulina channel so ocean ships could reach inland — and the wrecks on the bar fell from over a hundred to a handful. Sulina became a giddy, cosmopolitan free port of Greeks, Turks, Romanians, Lipovans and Jews.</p>
-    <p>Then, in <strong>1878</strong>, after one more Russo-Turkish war, the Treaty of Berlin redrew the map: <strong>Northern Dobrogea, the delta and Murighiol included, became part of Romania</strong> for the first time. It was a bittersweet bargain — Romania gained the delta but had to hand southern Bessarabia back to Russia. Romania still marks the day each November.</p>
+    <h2>The river straightened, the border moved</h2>
+    <p><span class="firstword">After the</span> Crimean War, the powers of Europe did something unusual: by the Treaty of Paris in <strong>1856</strong> they set up an international body, the <strong>European Commission of the Danube</strong>, to govern the river's mouths, and made its capital at <strong>Sulina</strong>, out on the seaward edge of the delta. Its British chief engineer, Sir Charles Hartley — remembered locally as "the father of the Danube" — spent decades training and straightening the Sulina channel so that ocean-going ships could reach far inland.</p>
+    <p>The results were dramatic. The shipwrecks that had once littered the river bar fell from <strong>111 in the years 1861–81 to just 5 in 1909–29</strong>. Sulina became a giddy, cosmopolitan free port — declared free in 1870 — of Greeks, Turks, Romanians, Lipovans and Jews, a little Babel at the end of Europe. The Commission would run the mouths of the Danube, through wars and empires, until 1948.</p>
+    <p>Then the border itself moved. In <strong>1878</strong>, after one more Russo-Turkish war, the Treaty of Berlin redrew the map: <strong>Northern Dobrogea — the delta and Murighiol included — became part of Romania</strong> for the first time in its history. It was a bittersweet bargain, for Romania gained the delta only by being forced to hand southern Bessarabia back to Russia. The country still marks the day each year, as <em>Dobruja Day</em>, on the 14th of November.</p>
   </section>
 
-  <section class="era" data-c="plum">
-    <span class="era-year">1947 – 1989 — the communist delta</span>
-    <h3>The dream of draining a wilderness</h3>
-    <p><span class="firstword">Communism</span> looked at the delta and saw not a wilderness to protect but a resource to conquer. First the reedbeds were harvested at industrial scale for paper. Then, under a 1979 decree, the regime set out to <em>drain</em> it — to wall off the water with dykes and turn marsh into wheat fields and fish farms. By 1990 roughly a <strong>quarter of the entire delta</strong>, some 97,000 hectares, had been embanked. The great <strong>Pardina</strong> polder swallowed nearly thirty thousand hectares; the number of natural lakes fell from 668 to 479. Right beside Murighiol, the <strong>Dunavăț</strong> fish-farm basins were carved out of the floodplain; out in the dunes, the half-finished <strong>Caraorman glass factory</strong> rose and was abandoned.</p>
-    <p>Even the village's name was conscripted: from <strong>1983 to 1996</strong>, Murighiol was officially called <em>Independența</em>. The purple lake had been renamed for a slogan.</p>
+  <!-- ERA 11 -->
+  <section class="era" data-c="plum" id="c11">
+    <span class="era-year">1880s – 1989 — fisheries, reeds and dykes</span>
+    <h2>The dream of draining a wilderness</h2>
+    <p><span class="firstword">Romania's first</span> instinct was to study the delta and use it wisely. Under King Carol I the great naturalist <strong>Grigore Antipa</strong> reorganised its fisheries on scientific lines and cut works like the <strong>Dunavăț canal</strong> to manage the flow of fish. But the century that followed would be far less gentle.</p>
+    <p>Communism, when it came, looked at the delta and saw not a wilderness to protect but a resource to be conquered. First the reedbeds were harvested at industrial scale to feed paper mills — a boom that ran from a few thousand tonnes in 1956 to a furious 226,000 tonnes by 1964–65, then collapsed and was largely abandoned by 1970. Then, under a decree of <strong>1979</strong>, the regime set out to do the unthinkable: to <em>drain</em> the delta, walling off the water behind dykes to make wheat fields and fish farms.</p>
+    <div class="fig">
+      <span class="tag">The scale of it</span>
+      <p>By 1990 roughly a <strong>quarter of the entire delta — about 97,400 hectares — had been embanked</strong>. The vast <strong>Pardina</strong> polder alone swallowed some 27,000–29,000 hectares; another rose at Sireasa. The delta's natural lakes fell from <strong>668 to 479</strong>. Right beside Murighiol, the <strong>Dunavăț–Murighiol</strong> fish-farm basins were carved out of the floodplain.</p>
+    </div>
+    <p>Out in the dunes near Caraorman, a wild scheme to mine quartz sand and build a <strong>glass factory</strong> rose half-finished from around 1979 — and was abandoned when the regime fell in 1989, its concrete skeleton still standing eerily in the sand today. Even the village's name was conscripted into the cause: from <strong>1983 to 1996</strong>, Murighiol was officially renamed <em>Independența</em>. The purple lake had been renamed for a slogan.</p>
     <p class="pull">They walled the water out. Then, after the dictatorship fell, they knocked the walls down again — and the delta came back.<span>The Babina &amp; Cernovca restorations, 1994–96</span></p>
   </section>
 
-  <section class="era" data-c="gold">
+  <!-- ERA 12 -->
+  <section class="era" data-c="gold" id="c12">
     <span class="era-year">1990 – today — the reserve</span>
-    <h3>Letting the water back in</h3>
-    <p><span class="firstword">When the</span> dictatorship collapsed in 1989, one of new Romania's first acts was to undo the drowning of the wetlands. In 1990 the whole delta — some 580,000 hectares — was declared a <strong>Biosphere Reserve</strong>; in 1991 UNESCO made it a World Heritage Site. And then came the boldest stroke of all: on the failed polders of <strong>Babina</strong> (1994) and <strong>Cernovca</strong> (1996), engineers deliberately <em>breached their own dykes</em> and let the Danube flood back in. The marsh healed astonishingly fast — otters and fish returned within seasons — and the project won a European conservation prize, becoming a model studied around the world.</p>
-    <p>Today the Danube Delta is the best-preserved in Europe, a wilderness of pelicans and lilies. The wild sturgeon that swam here since the age of dinosaurs are now protected by a fishing ban — and the old fishing villages, Murighiol among them, are quieter and greyer than they were, their young people drawn to the cities. The 2021 census counted <strong>2,959 people</strong> in the Murighiol commune, still nine-tenths Romanian with a thread of Ukrainian — the faded last weave of that great delta mosaic.</p>
+    <h2>Letting the water back in</h2>
+    <p><span class="firstword">When the</span> dictatorship collapsed in December 1989, one of new Romania's very first acts was to undo the drowning of the wetlands. <strong>Decree 103 of February 1990</strong> ended the reclamation programme outright. That September the whole delta — some <strong>580,000 hectares</strong> — was declared a <strong>Biosphere Reserve</strong>; in 1991 UNESCO made it a World Heritage Site and a Ramsar wetland of international importance; and a law of 1993 created the authority that runs it to this day.</p>
+    <p>Then came the boldest stroke of all. On the failed polders of <strong>Babina</strong> (from 1994) and <strong>Cernovca</strong> (from 1996), engineers deliberately <em>breached their own dykes</em> and let the Danube flood back in. The marsh healed astonishingly fast — water birds returned, and some twenty-nine fish species came back within a few seasons — and the project won the European <strong>EUROSITE</strong> conservation award in 1995, becoming a model studied around the world for how to give a drained wetland its life back.</p>
+    <p>Today the Danube Delta is the best-preserved in Europe, a wilderness of pelicans and lilies, and the wild sturgeon that have swum up this river since the age of the dinosaurs are protected by a fishing ban — imposed in 2006 and made effectively permanent in 2021, though poaching shadows it still. The old fishing villages, Murighiol among them, are quieter and greyer than they were; their young people have drifted to the cities. The 2021 census counted <strong>2,959 people</strong> in the Murighiol commune across its seven villages — still about nine-tenths Romanian, with a surviving thread of Ukrainian: the faded last weave of that great delta mosaic. The gateway to the wild Sfântu Gheorghe arm, and to the ruins of Halmyris, is now mostly a place people pass through on their way to the birds.</p>
   </section>
 
-  <section class="era" data-c="gold">
-    <span class="era-year">and so —</span>
-    <h3>What you're standing on</h3>
-    <p>When you walk out at dawn to the salt lake — the <em>purple lake</em> that gave the village its Turkish name — remember what lies beneath the birdsong: the bones of two Roman martyrs and the foundations of the empire's last fort on the Danube. A few fields away, the river quietly fills a basin the communists once tried to drain. A Bulgarian nation was born in these reeds; a Turkish saint sleeps under a town named for him; Russian and Ukrainian exiles still mend their nets on the water. Seven thousand years, from a clay man with his head in his hands to a pelican lifting off a mirror-flat lake at sunrise — all folded into one small village where the river finally lets go.</p>
+  <!-- CODA -->
+  <section class="coda">
+    <p class="big">And so, when you walk out at dawn to the salt lake — the <em>purple lake</em> that gave the village its Turkish name — remember what you are standing on.</p>
+    <p>Beneath the birdsong lie the bones of two Roman martyrs and the foundations of the empire's last fort on the Danube. A few fields away, the river quietly refills a basin the communists once tried to drain. Down the coast, a Greek geographer's twenty-six-century-old sentence still makes a lagoon the oldest written place in the country. A Bulgarian nation was born in these reeds; a Turkish saint sleeps under a town named for him; Russian and Ukrainian exiles still mend their nets on the water. Seven thousand years, from a clay man with his head in his hands to a pelican lifting off a mirror-flat lake at sunrise — all of it folded into one small village at the place where the river finally lets go of the land.</p>
+  </section>
 
+  <!-- TIMELINE -->
+  <section class="timeline">
+    <h3>The whole story, in a glance</h3>
     <ul class="tl">
-      <li><span class="yr">c. 5250 BC</span><span>Hamangia culture by the lagoons; "The Thinker" sculpted ~5000 BC.</span></li>
-      <li><span class="yr">7th c. BC</span><span>Milesian Greeks found Histria and Argamum on the coast.</span></li>
-      <li><span class="yr">~82–44 BC</span><span>Burebista unites the Getae &amp; Dacians.</span></li>
-      <li><span class="yr">late 1st c. AD</span><span>Rome builds the fort of Halmyris at Murighiol; rebuilt in stone under Trajan.</span></li>
+      <li><span class="yr">c. 5250 BC</span><span>Hamangia culture by the lagoons; "The Thinker" sculpted ~5000 BC, found 1956.</span></li>
+      <li><span class="yr">~4700 BC</span><span>Copper-working Gumelnița culture; later, the Iron-Age Babadag culture.</span></li>
+      <li><span class="yr">657 BC</span><span>Milesian Greeks found Histria; Argamum on Cape Doloșman soon after.</span></li>
+      <li><span class="yr">~480 BC</span><span>Histria strikes the first coins minted on Romanian soil.</span></li>
+      <li><span class="yr">~82–44 BC</span><span>Burebista unites the Getae &amp; Dacians and subdues the Greek cities.</span></li>
+      <li><span class="yr">late 1st c. AD</span><span>Rome builds the fort of Halmyris; rebuilt in stone under Trajan.</span></li>
       <li><span class="yr">c. 290</span><span>Martyrdom of Epictet &amp; Astion; their relics found in 2001.</span></li>
+      <li><span class="yr">384/5</span><span>The Danube freezes; tribes cross the ice and sack Halmyris.</span></li>
       <li><span class="yr">early 7th c.</span><span>Halmyris abandoned as the Danube frontier collapses.</span></li>
-      <li><span class="yr">681</span><span>Dobrogea becomes the core of the First Bulgarian Empire.</span></li>
+      <li><span class="yr">680–681</span><span>Battle of Ongal; Dobrogea becomes the core of the First Bulgarian Empire.</span></li>
+      <li><span class="yr">1263</span><span>Sarı Saltık and Seljuk Turks settle; Babadag takes his name.</span></li>
       <li><span class="yr">14th c.</span><span>Dobrotitsa's principality gives Dobrogea its name; Enisala fortress.</span></li>
       <li><span class="yr">1420</span><span>The Ottomans take Dobrogea; Babadag becomes its chief town.</span></li>
-      <li><span class="yr">1700s</span><span>Lipovan &amp; Ukrainian exiles settle the delta as fishermen.</span></li>
+      <li><span class="yr">1652 / 1775</span><span>Lipovan Old Believers, then Ukrainian Haholi, settle the delta.</span></li>
       <li><span class="yr">1856</span><span>European Commission of the Danube; Sulina's channel is straightened.</span></li>
-      <li><span class="yr">1878</span><span>Northern Dobrogea, &amp; the delta, joins Romania.</span></li>
-      <li><span class="yr">1979–89</span><span>Communist drainage; a quarter of the delta is diked. Murighiol → "Independența."</span></li>
-      <li><span class="yr">1990–91</span><span>Biosphere Reserve; UNESCO World Heritage.</span></li>
-      <li><span class="yr">1994–96</span><span>Babina &amp; Cernovca polders deliberately re-flooded — the delta restored.</span></li>
+      <li><span class="yr">1878</span><span>Northern Dobrogea, and the delta, joins Romania.</span></li>
+      <li><span class="yr">1979–89</span><span>Communist drainage; ~a quarter of the delta is diked. Murighiol → "Independența."</span></li>
+      <li><span class="yr">1990–91</span><span>Decree 103 ends reclamation; Biosphere Reserve; UNESCO &amp; Ramsar.</span></li>
+      <li><span class="yr">1994–96</span><span>Babina &amp; Cernovca polders deliberately re-flooded — the delta restored (EUROSITE 1995).</span></li>
+      <li><span class="yr">2006 / 2021</span><span>Wild sturgeon fishing banned, then made effectively permanent.</span></li>
       <li><span class="yr">2021</span><span>Murighiol commune: 2,959 people, gateway to the wild Sfântu Gheorghe arm.</span></li>
     </ul>
   </section>
 
-  <footer>
-    Drawn from a multi-source research pass — academic-referenced encyclopaedias, the Tulcea regional museum, the Orthodox life of Saints Epictet &amp; Astion, reporting on the Halmyris excavations and the Babina restoration, the UNESCO World Heritage datasheet, and Romania's 2021 census. Where the history is genuinely unsettled — the builder of Enisala, the date of the martyrdom, the origin of the name Dobrogea — the text says so rather than guessing.
-  </footer>
+  <!-- CORRECTIONS -->
+  <section class="corrections">
+    <h3>What's true, and what isn't</h3>
+    <dl>
+      <dt>The Thinker is not certainly a "thinker."</dt>
+      <dd>A real, extraordinary Neolithic figurine — but its philosophical reading is one interpretation among several (mourning, or a deity, are just as defensible).</dd>
+      <dt>Argamum is the oldest <em>written</em> place, not the oldest settlement.</dt>
+      <dd>Hecataeus named it in the late 6th century BC; people had lived in this region for millennia before that.</dd>
+      <dt>The martyrdom date of 290 comes from the hagiography.</dt>
+      <dd>The bones, the crypt and the name ASTION are solid; the exact year is the tradition's, plausible but not independently dated.</dd>
+      <dt>Enisala's builder is genuinely unknown.</dt>
+      <dd>"Genoese fortress" is popular tradition; Byzantine and Bulgarian origins are equally possible, and every written mention postdates its abandonment.</dd>
+      <dt>Babadag's mosque is not the oldest in Romania.</dt>
+      <dd>Mangalia's Esmahan Sultan Mosque (1570s) is older; Babadag's Gazi Ali Pasha mosque dates to around 1609.</dd>
+      <dt>Sarı Saltık has many tombs.</dt>
+      <dd>Babadag's shrine is one of several across the Balkans that claim him — the "seven coffins" legend.</dd>
+      <dt>The delta is Europe's <em>second</em>-largest, best-preserved.</dt>
+      <dd>"Largest in Europe" is tourism copy; it is the best-preserved, and the second-largest after the Volga.</dd>
+      <dt>"Independența" was a late name, not an old one.</dt>
+      <dd>It was the communist-era renaming of Murighiol, 1983–1996 — not some ancient title.</dd>
+    </dl>
+  </section>
+
+  <section class="sources">
+    <h3>A note on the sources</h3>
+    <p>This account was built from a multi-source research pass and is anchored on the archaeology and the documentary record rather than on local legend. Among the sources drawn on: the academic-referenced encyclopaedia articles on Halmyris, Dobruja, Scythia Minor, the Despotate of Dobruja and the Hamangia culture; the regional museum at Tulcea (ICEM); the Orthodox Church's life of Saints Epictet &amp; Astion and reporting on the Halmyris excavations led by Mihail Zahariade; coverage of the Babina–Cernovca restorations; the UNESCO and UNEP-WCMC World Heritage datasheets for the Danube Delta; and Romania's 2021 census. Dates and figures are given as the sources give them — sometimes as a range, sometimes as a contested estimate — and where the history is genuinely unsettled (the builder of Enisala, the year of the martyrdom, the origin of the name Dobrogea) the text says so rather than guessing. Written with care for a single small village, June 2026.</p>
+  </section>
 
 </div>
 </div>
