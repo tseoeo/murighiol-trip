@@ -192,6 +192,14 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
 .sources{margin:2.6rem 0 0;padding-top:1.8rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.82rem;color:var(--muted);line-height:1.65}
 .sources a{color:var(--muted);text-decoration:underline}
 
+/* fish table */
+.fishtable-wrap{overflow-x:auto;margin:.5rem 0 .3rem;-webkit-overflow-scrolling:touch}
+.fishtable{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.88rem;line-height:1.45;min-width:34rem}
+.fishtable thead th{text-align:left;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);padding:.45rem .6rem;white-space:nowrap}
+.fishtable td{vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--rule)}
+.fishtable tr.grp th{text-align:left;font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--amber);background:var(--sand-soft);padding:.7rem .6rem .45rem;border-bottom:1px solid var(--rule)}
+.fishtable td.en{font-weight:700;color:var(--ink)}
+.fishtable td.bg{color:var(--teal);font-weight:600}
 </style>
 <script>document.documentElement.classList.add('has-js');</script>
 </head>
@@ -377,6 +385,47 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
           <li><span class="k">Carp "la proțap"</span> — a whole carp splayed on a wooden stake and slow-roasted by the fire.</li>
           <li>And the smaller Slavic things — <strong>vareniki</strong> and <strong>pelmeni</strong> (filled dumplings) — if a Lipovan grandmother is cooking.</li>
         </ul>
+        <h4>The fish, named — and in Bulgarian</h4>
+        <p>Nearly everything on a delta plate comes out of the water, so here is the cast: what it is in English, in Bulgarian, and what you're actually eating. Most are freshwater river-and-lake fish; a handful are brackish-lagoon or Black Sea species you'll meet nearer the coast.</p>
+        <div class="fishtable-wrap">
+        <table class="fishtable">
+          <thead><tr><th>English</th><th>Bulgarian</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr class="grp"><th colspan="3">Everyday river &amp; lake fish</th></tr>
+            <tr><td class="en">Common carp</td><td class="bg">шаран</td><td>The king of the delta table — a big cyprinid, the classic fish for brine-grilling (<em>saramură</em>) and whole-roasting on a stake (<em>la proțap</em>).</td></tr>
+            <tr><td class="en">Crucian / Prussian carp</td><td class="bg">каракуда</td><td>Small, hardy still-water pan-fish; the everyday fry — and the source of the carp-roe "caviar" salad.</td></tr>
+            <tr><td class="en">Wels catfish</td><td class="bg">сом</td><td>Giant whiskered river catfish (can top 2 m); firm, nearly boneless meat — grilled, stewed, in soup.</td></tr>
+            <tr><td class="en">Northern pike</td><td class="bg">щука</td><td>Toothy predator of the reed edges; lean white flesh, classic in fish soup and stuffed.</td></tr>
+            <tr><td class="en">Pike-perch / zander</td><td class="bg">съдак (бяла риба)</td><td>The connoisseur's fish — firm, sweet, almost bone-free fillet; the premium plate.</td></tr>
+            <tr><td class="en">European perch</td><td class="bg">костур</td><td>Little striped predator with sweet white flesh; superb fried or in soup.</td></tr>
+            <tr><td class="en">Common bream</td><td class="bg">платика</td><td>Deep-bodied cyprinid; tasty if bony — usually fried or smoked.</td></tr>
+            <tr><td class="en">Roach</td><td class="bg">бабушка</td><td>Small silver channel fish; an everyday fry / soup fish.</td></tr>
+            <tr><td class="en">Rudd</td><td class="bg">червеноперка</td><td>Red-finned cousin of the roach; a similar small pan-fish.</td></tr>
+            <tr><td class="en">Tench</td><td class="bg">лин</td><td>Olive, slimy-skinned bottom fish with sweet meat; a delta favourite in stews.</td></tr>
+            <tr><td class="en">Asp</td><td class="bg">распер</td><td>Fast, surface-hunting cyprinid predator; firm meat, grilled.</td></tr>
+            <tr><td class="en">Chub</td><td class="bg">клен</td><td>Bony river cyprinid; pan-fried.</td></tr>
+            <tr><td class="en">Sabre carp (ziege)</td><td class="bg">сабица</td><td>Thin, sabre-shaped silver fish; fried crisp, or salted and dried.</td></tr>
+            <tr class="grp"><th colspan="3">The sturgeons — the old aristocracy (wild fishing now banned)</th></tr>
+            <tr><td class="en">Beluga</td><td class="bg">моруна</td><td>The giant — the world's largest freshwater fish, and the source of the legendary black caviar. Wild catch banned.</td></tr>
+            <tr><td class="en">Russian sturgeon</td><td class="bg">есетра</td><td>The classic caviar sturgeon. Wild catch banned.</td></tr>
+            <tr><td class="en">Stellate sturgeon</td><td class="bg">пъструга</td><td>Slender and long-snouted; gives "sevruga" caviar. Wild catch banned.</td></tr>
+            <tr><td class="en">Sterlet</td><td class="bg">чига</td><td>The smallest, freshwater-only sturgeon, once common in the Danube. Protected.</td></tr>
+            <tr class="grp"><th colspan="3">Migratory, brackish &amp; Black Sea (lagoon rim &amp; coast)</th></tr>
+            <tr><td class="en">Pontic shad / Danube herring</td><td class="bg">карагьоз</td><td>Fatty herring that runs up the Danube to spawn in spring–early summer (Romanian <em>scrumbie</em>); superb smoked or grilled — a seasonal delicacy.</td></tr>
+            <tr><td class="en">Grey mullet</td><td class="bg">кефал</td><td>Firm, fatty fish of the brackish Razelm lagoon; grilled — and its roe makes bottarga.</td></tr>
+            <tr><td class="en">Black Sea sprat</td><td class="bg">цаца</td><td>Tiny silver shoaling fish, deep-fried whole by the handful — a beloved snack.</td></tr>
+            <tr><td class="en">Goby</td><td class="bg">попче</td><td>Small bottom fish of the lagoons and coast; fried whole or in soup.</td></tr>
+            <tr><td class="en">Turbot</td><td class="bg">калкан</td><td>Prized, meaty flatfish of the coast near the river mouth; seasonal and regulated.</td></tr>
+            <tr><td class="en">Mackerel</td><td class="bg">скумрия</td><td>Oily migratory sea fish; grilled or smoked (coast).</td></tr>
+            <tr><td class="en">Bonito</td><td class="bg">паламуд</td><td>A tuna-family migratory fish of the autumn runs; rich, grilled or marinated (coast).</td></tr>
+            <tr><td class="en">Eel</td><td class="bg">змиорка</td><td>Snake-like fish, once common in the delta, now scarce; rich, usually smoked.</td></tr>
+            <tr class="grp"><th colspan="3">Other things from the water</th></tr>
+            <tr><td class="en">Fish roe / "caviar" salad</td><td class="bg">хайвер (салата от хайвер)</td><td>Whipped fish roe — now usually carp — spread on bread; the everyday delta starter. True black caviar (<em>хайвер от есетра</em>) is the sturgeon kind, today farmed-only.</td></tr>
+            <tr><td class="en">Crayfish</td><td class="bg">речен рак</td><td>Freshwater crayfish from the cleaner channels; boiled, a seasonal treat.</td></tr>
+            <tr><td class="en">Frog legs</td><td class="bg">жабешки бутчета</td><td>Yes — delta frogs are eaten, floured and fried; a genuine local oddity.</td></tr>
+          </tbody>
+        </table>
+        </div>
         <h4>The caviar story (and the rule)</h4>
         <p>For a century this was <strong>sturgeon country</strong> — the great prehistoric fish ran up the Danube to spawn, and Danube caviar was world-famous. Overfishing and dams collapsed the populations, and since 2006 (made effectively permanent in 2021) <strong>wild sturgeon fishing and wild caviar are banned</strong>. So: any "wild Danube caviar" offered to you is illegal — refuse it. Only <strong>farmed, CITES-papered</strong> caviar is legal, and the honest, delicious local substitute is <em>salată de icre de crap</em>, carp-roe salad.</p>
         <h4>How to actually eat well</h4>
