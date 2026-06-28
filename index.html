@@ -224,7 +224,7 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
 .bird-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 .bird{background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .bird-pics{display:flex;gap:2px;background:var(--rule)}
-.bird-pics img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center;display:block;flex:1;min-width:0}
+.bird-pics img{width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:var(--sand-soft);display:block;flex:1;min-width:0;cursor:zoom-in}
 .bird-body{padding:.9rem 1rem 1rem}
 .bird-body h3{font-size:1.16rem;margin:0 0 .25rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
 .now{font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2em .55em;border-radius:2em;white-space:nowrap}
@@ -234,12 +234,12 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
 .bird-names .ro{color:var(--ink);font-weight:700}
 .bird-names .bg{color:var(--teal)}
 .bird-desc{font-size:.92rem;margin:0 0 .6rem}
-.bird-more{border-top:1px dotted var(--rule);padding-top:.4rem}
-.bird-more summary{cursor:pointer;font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--teal);list-style:none}
+.bird-more{border-top:1px dotted var(--rule)}
+.bird-more summary{cursor:pointer;font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--teal);list-style:none;padding:.7rem .9rem}
 .bird-more summary::-webkit-details-marker{display:none}
 .bird-more summary::before{content:"\25B8  "}
 .bird-more[open] summary::before{content:"\25BE  "}
-.bird-more dl{margin:.6rem 0 0;font-size:.88rem;line-height:1.5}
+.bird-more dl{margin:0;padding:0 .9rem .9rem;font-size:.88rem;line-height:1.5}
 .bird-more dt{font-family:var(--sans);font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
 .bird-more dt:first-child{margin-top:0}
 .bird-more dd{margin:.1rem 0 0}
@@ -247,6 +247,13 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
 .bird-credits summary{cursor:pointer;font-weight:700}
 .bird-credits dt{font-weight:700;margin-top:.5rem;color:var(--ink)}
 .bird-credits dd{margin:0}
+
+/* lightbox (tap a bird photo to view full size) */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lightbox .lb-close{position:absolute;top:.6rem;right:1rem;color:#fff;font-size:2.4rem;line-height:1;font-family:var(--sans);opacity:.85;cursor:pointer}
+.lightbox .lb-cap{position:absolute;bottom:1rem;left:0;right:0;text-align:center;color:#fff;opacity:.8;font-family:var(--sans);font-size:.78rem;padding:0 1rem}
 @media(max-width:560px){.bird-grid{grid-template-columns:1fr}}
 
 </style>
@@ -1405,6 +1412,20 @@ footer{margin:3rem 0 4rem;padding-top:1.6rem;border-top:1px solid var(--rule);fo
       window.scrollTo({top:0,behavior:'smooth'});
     });
   });
+})();
+</script>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><span class="lb-close" aria-label="Close">&times;</span><img alt=""><div class="lb-cap"></div></div>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),img=lb.querySelector('img'),cap=lb.querySelector('.lb-cap');
+  function close(){lb.classList.remove('open');img.removeAttribute('src');}
+  document.addEventListener('click',function(e){
+    var el=e.target;
+    if(el.tagName==='IMG'&&el.closest('.bird-pics')){img.src=el.currentSrc||el.src;img.alt=el.alt||'';cap.textContent=el.getAttribute('title')||el.alt||'';lb.classList.add('open');}
+    else if(el===lb||el.classList.contains('lb-close')){close();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))close();});
 })();
 </script>
 </body>
